@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RMUkSfZhaJ2KP7WZG5/n5XsdFQXfgNhiB8JGtnNy2rpgnM4Vnkl4ooFVxSU8ESqJyLVWCyoLsJOzRB+8PVRKKg==",
+  "dgSpecHash": "FhuBse+b5DKJTuQgE5W+SKgOpaoTXozjyyMXnnZdXCYl5m2ICdpwchg8gAJDPT6F2M6yUZO170afapAdtSXSkA==",
   "success": true,
-  "projectFilePath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\SmartFishingApp\\SmartFishingApp.csproj",
+  "projectFilePath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\UserProfile\\UserProfile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
