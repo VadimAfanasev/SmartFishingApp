@@ -15,6 +15,7 @@
     <ItemGroup>
       <Folder Include="Dto\" />
       <Folder Include="Models\Place\" />
+      <Folder Include="Models\Tackle\TackleTypes\" />
       <Folder Include="Services\" />
     </ItemGroup>
 

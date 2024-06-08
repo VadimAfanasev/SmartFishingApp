@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace SmartFishingApp.Models.TypeOfFishing;
 
 using Rod;
+using Tackle;
 
 /// <summary>
 ///     Класс оприсывающий вид ловли
@@ -24,4 +25,9 @@ public class TypeOfFishing
     ///     Удилища
     /// </summary>
     public List<Rod>? Rods { get; set; }
+    
+    /// <summary>
+    ///     Приманки
+    /// </summary>
+    public List<TackleBase>? Tackles { get; set; }
 }

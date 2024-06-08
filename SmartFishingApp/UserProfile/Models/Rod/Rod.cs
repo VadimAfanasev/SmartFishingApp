@@ -28,6 +28,11 @@ public class Rod
     public string? Length { get; set; }
     
     /// <summary>
+    ///     Класс удилища
+    /// </summary>
+    public string? Class { get; set; }
+    
+    /// <summary>
     ///     Вид ловли
     /// </summary>
     public TypeOfFishing? TypeOfFishing { get; set; }
