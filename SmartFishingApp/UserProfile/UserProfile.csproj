@@ -14,7 +14,10 @@
 
     <ItemGroup>
       <Folder Include="Dto\" />
-      <Folder Include="Models\" />
+      <Folder Include="Models\Place\" />
+      <Folder Include="Models\Rod\" />
+      <Folder Include="Models\Tackle\" />
+      <Folder Include="Models\TypeOfFishing\" />
       <Folder Include="Services\" />
     </ItemGroup>
 
