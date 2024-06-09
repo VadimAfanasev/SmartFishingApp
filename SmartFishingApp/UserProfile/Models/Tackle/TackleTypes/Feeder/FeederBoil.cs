@@ -1,5 +1,8 @@
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
 
+/// <summary>
+///     Бойл для насадки
+/// </summary>
 public class FeederBoil: TackleBase
 {
     /// <summary>

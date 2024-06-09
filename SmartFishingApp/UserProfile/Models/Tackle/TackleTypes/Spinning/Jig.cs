@@ -1,5 +1,8 @@
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
 
+/// <summary>
+///     Джиг
+/// </summary>
 public class Jig: TackleBase
 {
     /// <summary>

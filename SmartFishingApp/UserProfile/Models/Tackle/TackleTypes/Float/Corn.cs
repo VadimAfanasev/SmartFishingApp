@@ -1,7 +1,7 @@
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Float;
 
 /// <summary>
-///     Зерновая насадка на крючок
+///     Растительная насадка на крючок
 /// </summary>
 public class Corn: TackleBase
 {

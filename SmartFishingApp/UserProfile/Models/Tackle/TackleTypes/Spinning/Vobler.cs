@@ -1,7 +1,7 @@
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
 
 /// <summary>
-///     Описание Воблера
+///     Воблер
 /// </summary>
 public class Vobler: TackleBase
 {

@@ -1,9 +1,9 @@
-namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
+namespace SmartFishingApp.Models.Tackle.TackleTypes.Winter;
 
 /// <summary>
-///     Блесна
+///     Мормышка
 /// </summary>
-public class Spoon: TackleBase
+public class WinterJig: TackleBase
 {
     /// <summary>
     ///     Название производителя
@@ -16,14 +16,14 @@ public class Spoon: TackleBase
     public string? Model { get; set; }
     
     /// <summary>
-    ///     Форма приманки
+    ///     Вес приманки
     /// </summary>
-    public string? Form { get; set; }
+    public double? Weight { get; set; }
     
     /// <summary>
-    ///     Размер приманки
+    ///     Форма приманки
     /// </summary>
-    public double? SizeNumber { get; set; }
+    public double? Form { get; set; }
     
     /// <summary>
     ///     Цвет приманки
