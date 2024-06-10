@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9v4eTGsVI2hhWSxK4i69zGA7Bcghb5AMO29SOmCguY5YjG6oMoQMTdSxRB66IoFW8qksw7ika4syBWgXr4Xq/A==",
+  "dgSpecHash": "F8XANgM1dPqJLF5ow8TtDXLmMFZKbS7boSmZeSRZIl4QXbE5Caoqz13MxcMywqCgOpZd6IZu5qC0spHvgh4JaQ==",
   "success": true,
-  "projectFilePath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\UserProfile\\UserProfile.csproj",
+  "projectFilePath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Database\\Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.20\\microsoft.entityframeworkcore.7.0.20.nupkg.sha512",
