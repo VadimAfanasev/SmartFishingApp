@@ -1,13 +1,15 @@
 using Microsoft.AspNetCore.HttpLogging;
+
+using Microsoft.EntityFrameworkCore;
 using SmartFishingApp.Models.Rod;
 using SmartFishingApp.Models.Tackle;
+using SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
+using SmartFishingApp.Models.Tackle.TackleTypes.Float;
 using SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
 using SmartFishingApp.Models.Tackle.TackleTypes.Winter;
 using SmartFishingApp.Models.TypeOfFishing;
 
 namespace Database.Context;
-
-using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext: DbContext
 {
@@ -63,4 +65,34 @@ public class AppDbContext: DbContext
     ///    Спиннинг. Блесна.
     /// </summary>
     public DbSet<Spoon> Spoon => Set<Spoon>();
+    
+    /// <summary>
+    ///    Спиннинг. Воблер.
+    /// </summary>
+    public DbSet<Vobler> Vobler => Set<Vobler>();
+    
+    /// <summary>
+    ///    Поплавочная удочка. Живая насадка.
+    /// </summary>
+    public DbSet<Alive> Alive => Set<Alive>();
+    
+    /// <summary>
+    ///    Поплавочная удочка. Растительная насадка.
+    /// </summary>
+    public DbSet<Corn> Corn => Set<Corn>();
+    
+    /// <summary>
+    ///    Фидер / Донка. Живая насадка.
+    /// </summary>
+    public DbSet<FeederAlive> FeederAlive => Set<FeederAlive>();
+    
+    /// <summary>
+    ///    Фидер / Донка. Бойл.
+    /// </summary>
+    public DbSet<FeederBoil> FeederBoil => Set<FeederBoil>();
+    
+    /// <summary>
+    ///    Фидер / Донка. Растительная насадка.
+    /// </summary>
+    public DbSet<FeederCorn> FeederCorn => Set<FeederCorn>();
 }
