@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.HttpLogging;
-
 using Microsoft.EntityFrameworkCore;
 using SmartFishingApp.Models.Rod;
 using SmartFishingApp.Models.Tackle;
@@ -16,7 +14,7 @@ public class AppDbContext: DbContext
     /// <summary>
     ///     Конструктор.
     /// </summary>
-    /// <param name="options"> Настройки контекста сущностей Postgis. </param>
+    /// <param name="options"> Настройки контекста. </param>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
