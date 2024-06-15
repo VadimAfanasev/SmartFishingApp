@@ -43,3 +43,17 @@ E:\Программирование\Проекты\SmartFishingApp\Backend\Smart
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\obj\Debug\net7.0\SmartFishingApp.pdb
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\obj\Debug\net7.0\SmartFishingApp.genruntimeconfig.cache
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\obj\Debug\net7.0\ref\SmartFishingApp.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Humanizer.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.Specification.Tests.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Specification.Tests.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Mono.TextTemplating.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\System.CodeDom.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.abstractions.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.assert.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.core.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.execution.dotnet.dll

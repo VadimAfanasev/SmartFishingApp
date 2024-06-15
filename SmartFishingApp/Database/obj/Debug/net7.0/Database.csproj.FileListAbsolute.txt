@@ -13,3 +13,5 @@ E:\Программирование\Проекты\SmartFishingApp\Backend\Smart
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\Database\obj\Debug\net7.0\refint\Database.dll
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\Database\obj\Debug\net7.0\Database.pdb
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\Database\obj\Debug\net7.0\ref\Database.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\Database\bin\Debug\net7.0\Database.runtimeconfig.json
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\Database\obj\Debug\net7.0\Database.genruntimeconfig.cache
