@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
 
 /// <summary>

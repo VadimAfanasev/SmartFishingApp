@@ -93,4 +93,22 @@ public class AppDbContext: DbContext
     ///    Фидер / Донка. Растительная насадка.
     /// </summary>
     public DbSet<FeederCorn> FeederCorn => Set<FeederCorn>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<FeederAlive>().ToTable("FeederAlives");
+        modelBuilder.Entity<FeederBoil>().ToTable("FeederBoils");
+        modelBuilder.Entity<FeederCorn>().ToTable("FeederCorns");
+        modelBuilder.Entity<Alive>().ToTable("Alives");
+        modelBuilder.Entity<Corn>().ToTable("Corns");
+        modelBuilder.Entity<Jig>().ToTable("Jigs");
+        modelBuilder.Entity<Spoon>().ToTable("Spoons");
+        modelBuilder.Entity<Vobler>().ToTable("Voblers");
+        modelBuilder.Entity<Rocker>().ToTable("Rockers");
+        modelBuilder.Entity<WinterJig>().ToTable("WinterJigs");
+        modelBuilder.Entity<WinterSpoon>().ToTable("WinterSpoons");
+        modelBuilder.Entity<WinterVobler>().ToTable("WinterVobler");
+        
+        base.OnModelCreating(modelBuilder);
+    }
 }
