@@ -34,8 +34,14 @@ namespace Database.Migrations
                     b.Property<string>("Class")
                         .HasColumnType("text");
 
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
                     b.Property<string>("Length")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("Type")
                         .HasColumnType("text");
@@ -59,8 +65,14 @@ namespace Database.Migrations
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
 
                     b.Property<Guid?>("TypeOfFishingId")
                         .HasColumnType("uuid");
@@ -82,6 +94,9 @@ namespace Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -100,6 +115,9 @@ namespace Database.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()

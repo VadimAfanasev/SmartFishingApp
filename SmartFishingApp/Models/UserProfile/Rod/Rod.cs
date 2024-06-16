@@ -36,4 +36,14 @@ public class Rod
     ///     Вид ловли
     /// </summary>
     public TypeOfFishing? TypeOfFishing { get; set; }
+    
+    /// <summary>
+    ///     Фото
+    /// </summary>
+    public byte[]? Photo { get; set; }
+    
+    /// <summary>
+    ///     Комментарий
+    /// </summary>
+    public string? Commentary { get; set; }
 }

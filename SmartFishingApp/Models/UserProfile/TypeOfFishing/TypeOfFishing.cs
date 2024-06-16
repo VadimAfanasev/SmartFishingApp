@@ -30,4 +30,11 @@ public class TypeOfFishing
     ///     Приманки
     /// </summary>
     public List<TackleBase>? Tackles { get; set; }
+    
+    /// <summary>
+    ///     Комментарий
+    /// </summary>
+    public string? Commentary { get; set; }
+    
+    //определиться какие из моделей будут заполняться через миграцию значениями по умолчанию, и какие это будут значения. TackleCategory
 }

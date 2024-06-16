@@ -22,4 +22,9 @@ public class TackleCategory
     ///     Вид ловли
     /// </summary>
     public TypeOfFishing? TypeOfFishing { get; set; }
+    
+    /// <summary>
+    ///     Комментарий
+    /// </summary>
+    public string? Commentary { get; set; }
 }

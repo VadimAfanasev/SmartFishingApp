@@ -16,7 +16,8 @@ namespace Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Commentary = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,7 +33,9 @@ namespace Database.Migrations
                     Type = table.Column<string>(type: "text", nullable: true),
                     Length = table.Column<string>(type: "text", nullable: true),
                     Class = table.Column<string>(type: "text", nullable: true),
-                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true)
+                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Photo = table.Column<byte[]>(type: "bytea", nullable: true),
+                    Commentary = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -50,7 +53,8 @@ namespace Database.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true)
+                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Commentary = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,7 +73,9 @@ namespace Database.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uuid", nullable: true),
-                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true)
+                    TypeOfFishingId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Photo = table.Column<byte[]>(type: "bytea", nullable: true),
+                    Commentary = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
