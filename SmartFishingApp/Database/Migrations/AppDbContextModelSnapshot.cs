@@ -56,38 +56,6 @@ namespace Database.Migrations
                     b.ToTable("Rod");
                 });
 
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleBase", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Commentary")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<byte[]>("Photo")
-                        .HasColumnType("bytea");
-
-                    b.Property<Guid?>("TypeOfFishingId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("TypeOfFishingId");
-
-                    b.ToTable("TackleBase");
-
-                    b.UseTptMappingStrategy();
-                });
-
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleCategory", b =>
                 {
                     b.Property<Guid>("Id")
@@ -110,6 +78,450 @@ namespace Database.Migrations
                     b.ToTable("TackleCategory");
                 });
 
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederAlive", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Lure")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NozzleType")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("FeederAlives", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederBoil", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Lure")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Size")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("FeederBoils", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederCorn", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Lure")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NozzleType")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("FeederCorns", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Alive", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NozzleType")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Alives", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Corn", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NozzleType")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Corns", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Jig", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Form")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Jigs", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Spoon", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Form")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("SizeNumber")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Spoons", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Vobler", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Depenning")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Flotation")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Voblers", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.Rocker", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Rockers", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterJig", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Form")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("WinterJigs", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterSpoon", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("WinterSpoons", (string)null);
+                });
+
+            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterVobler", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Commentary")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("bytea");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("WinterVobler", (string)null);
+                });
+
             modelBuilder.Entity("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", b =>
                 {
                     b.Property<Guid>("Id")
@@ -128,234 +540,6 @@ namespace Database.Migrations
                     b.ToTable("TypeOfFishing");
                 });
 
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederAlive", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Lure")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NozzleType")
-                        .HasColumnType("text");
-
-                    b.ToTable("FeederAlives", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederBoil", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Lure")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Size")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("FeederBoils", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederCorn", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Lure")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NozzleType")
-                        .HasColumnType("text");
-
-                    b.ToTable("FeederCorns", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Alive", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("NozzleType")
-                        .HasColumnType("text");
-
-                    b.ToTable("Alives", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Corn", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("NozzleType")
-                        .HasColumnType("text");
-
-                    b.ToTable("Corns", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Jig", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Form")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Length")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.ToTable("Jigs", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Spoon", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Form")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("SizeNumber")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("Spoons", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Vobler", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Depenning")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Flotation")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Length")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("Voblers", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.Rocker", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Length")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("Rockers", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterJig", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Form")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("WinterJigs", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterSpoon", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Length")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("WinterSpoons", (string)null);
-                });
-
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterVobler", b =>
-                {
-                    b.HasBaseType("SmartFishingApp.Models.Tackle.TackleBase");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Length")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("WinterVobler", (string)null);
-                });
-
             modelBuilder.Entity("SmartFishingApp.Models.Rod.Rod", b =>
                 {
                     b.HasOne("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", "TypeOfFishing")
@@ -365,25 +549,10 @@ namespace Database.Migrations
                     b.Navigation("TypeOfFishing");
                 });
 
-            modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleBase", b =>
-                {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", "TypeOfFishing")
-                        .WithMany("Tackles")
-                        .HasForeignKey("TypeOfFishingId");
-
-                    b.Navigation("Category");
-
-                    b.Navigation("TypeOfFishing");
-                });
-
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleCategory", b =>
                 {
                     b.HasOne("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", "TypeOfFishing")
-                        .WithMany()
+                        .WithMany("TackleCategories")
                         .HasForeignKey("TypeOfFishingId");
 
                     b.Navigation("TypeOfFishing");
@@ -391,117 +560,117 @@ namespace Database.Migrations
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederAlive", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederAlive", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederBoil", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederBoil", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederCorn", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederCorn", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Alive", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Float.Alive", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Float.Corn", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Float.Corn", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Jig", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Jig", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Spoon", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Spoon", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Vobler", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Spinning.Vobler", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.Rocker", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Winter.Rocker", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterJig", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterJig", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterSpoon", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterSpoon", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterVobler", b =>
                 {
-                    b.HasOne("SmartFishingApp.Models.Tackle.TackleBase", null)
-                        .WithOne()
-                        .HasForeignKey("SmartFishingApp.Models.Tackle.TackleTypes.Winter.WinterVobler", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SmartFishingApp.Models.Tackle.TackleCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", b =>
                 {
                     b.Navigation("Rods");
 
-                    b.Navigation("Tackles");
+                    b.Navigation("TackleCategories");
                 });
 #pragma warning restore 612, 618
         }

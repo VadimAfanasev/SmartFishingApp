@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SmartFishingApp.Models.Tackle;
 
 using TypeOfFishing;
@@ -12,6 +14,7 @@ public class TackleBase
     /// </summary>
     public Guid Id { get; set; }
     
+    //Оставляем т.к. может пригодиться для насадок на крючок
     /// <summary>
     ///     Название приманки
     /// </summary>
@@ -20,12 +23,8 @@ public class TackleBase
     /// <summary>
     ///     Категория приманки (На уровень ниже вида ловли - бойл, блесна, воблер, червяк)
     /// </summary>
-    public TackleCategory? Category { get; set; }
-    
-    /// <summary>
-    ///     Вид ловли
-    /// </summary>
-    public TypeOfFishing? TypeOfFishing { get; set; }
+    [Required(ErrorMessage = "Поле \"Категория приманки\" обязательно для заполнения")]
+    public required TackleCategory TackleCategory { get; set; } 
     
     /// <summary>
     ///     Фото

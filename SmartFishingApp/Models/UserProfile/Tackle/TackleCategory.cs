@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SmartFishingApp.Models.Tackle;
 
 using TypeOfFishing;
@@ -21,7 +23,8 @@ public class TackleCategory
     /// <summary>
     ///     Вид ловли
     /// </summary>
-    public TypeOfFishing? TypeOfFishing { get; set; }
+    [Required(ErrorMessage = "Поле \"Вид ловли\" обязательно для заполнения")]
+    public required TypeOfFishing TypeOfFishing { get; set; }
     
     /// <summary>
     ///     Комментарий

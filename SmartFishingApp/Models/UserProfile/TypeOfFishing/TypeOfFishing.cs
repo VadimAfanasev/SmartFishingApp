@@ -13,8 +13,8 @@ public class TypeOfFishing
     /// <summary>
     ///     Название
     /// </summary>
-    [Required]
-    public string? Name { get; set; }
+    [Required(ErrorMessage = "Поле \"Название\" обязательно для заполнения")]
+    public required string Name { get; set; }
     
     /// <summary>
     ///     ID сущности
@@ -29,12 +29,15 @@ public class TypeOfFishing
     /// <summary>
     ///     Приманки
     /// </summary>
-    public List<TackleBase>? Tackles { get; set; }
+    public List<TackleCategory>? TackleCategories { get; set; }
     
     /// <summary>
     ///     Комментарий
     /// </summary>
     public string? Commentary { get; set; }
     
-    //определиться какие из моделей будут заполняться через миграцию значениями по умолчанию, и какие это будут значения. TackleCategory
+    // определиться какие из моделей будут заполняться через миграцию значениями по умолчанию, и какие это будут значения. TackleCategory (все категории приманок из созданных моделей), TypeOfFishing (по умолчанию
+    // поплавок, спинниг, фидер, зимняя)
+    
+    // Возможно стоит изменить ID на int или string, чтобы было удобно заполнять стандартными значениями.
 }
