@@ -1,11 +1,11 @@
-namespace SmartFishingApp.Models.Rod;
+using SmartFishingApp.Models.TypeOfFishing;
 
-using TypeOfFishing;
+namespace Models.UserProfile.FishingReel;
 
 /// <summary>
-///     Класс оприсывающий удилище
+///     Класс описывающий катушку
 /// </summary>
-public class Rod
+public class FishingReel
 {
     /// <summary>
     ///     ID сущности
@@ -23,19 +23,9 @@ public class Rod
     public string? Type { get; set; }
     
     /// <summary>
-    ///     Длинна удилища
+    ///     Тип катушки
     /// </summary>
-    public string? Length { get; set; }
-    
-    /// <summary>
-    ///     Класс удилища
-    /// </summary>
-    public string? Class { get; set; }
-    
-    /// <summary>
-    ///     Тип удилища
-    /// </summary>
-    public RodType? RodType { get; set; }
+    public ReelType? ReelType { get; set; }
     
     /// <summary>
     ///     Вид ловли
