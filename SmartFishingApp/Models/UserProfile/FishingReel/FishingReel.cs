@@ -25,7 +25,7 @@ public class FishingReel
     /// <summary>
     ///     Тип катушки
     /// </summary>
-    public ReelType? ReelType { get; set; }
+    public FishingReelType? ReelType { get; set; }
     
     /// <summary>
     ///     Вид ловли

@@ -3,12 +3,12 @@ namespace Models.UserProfile.FishingReel;
 /// <summary>
 ///     Класс описывающий тип катушек
 /// </summary>
-public class ReelType
+public class FishingReelType
 {
     /// <summary>
     ///     ID сущности
     /// </summary>
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     
     /// <summary>
     ///     Название типа катушек

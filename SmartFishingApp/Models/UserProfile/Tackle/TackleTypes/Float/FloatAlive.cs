@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Float;
 
 /// <summary>
-///     Растительная насадка на крючок
+///     Живая насадка на крючок
 /// </summary>
-public class Corn: TackleBase
+public class FloatAlive: TackleBase
 {
     /// <summary>
     ///     Вид насадки

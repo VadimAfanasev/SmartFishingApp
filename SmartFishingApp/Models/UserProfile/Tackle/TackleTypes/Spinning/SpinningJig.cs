@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
 
 /// <summary>
-///     Воблер
+///     Джиг
 /// </summary>
-public class Vobler: TackleBase
+public class SpinningJig: TackleBase
 {
     /// <summary>
     ///     Название производителя
@@ -18,9 +18,9 @@ public class Vobler: TackleBase
     public string? Model { get; set; }
     
     /// <summary>
-    ///     Вес приманки
+    ///     Форма приманки
     /// </summary>
-    public double? Weight { get; set; }
+    public string? Form { get; set; }
     
     /// <summary>
     ///     Длинна приманки
@@ -28,17 +28,7 @@ public class Vobler: TackleBase
     public double? Length { get; set; }
     
     /// <summary>
-    ///     Заглубление
-    /// </summary>
-    public double? Depenning { get; set; }
-    
-    /// <summary>
     ///     Цвет приманки
     /// </summary>
     public string? Color { get; set; }
-
-    /// <summary>
-    ///     Плавучесть
-    /// </summary>
-    public string? Flotation { get; set; }
 }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Models.UserProfile.FishingReel;
 using SmartFishingApp.Models.Rod;
 using SmartFishingApp.Models.Tackle;
 using SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
@@ -28,7 +29,22 @@ public class AppDbContext: DbContext
     ///     Удилище.
     /// </summary>
     public DbSet<Rod> Rod => Set<Rod>();
+
+    /// <summary>
+    ///     Тип удилища.
+    /// </summary>
+    public DbSet<RodType> RodType => Set<RodType>();
     
+    /// <summary>
+    ///     Катушка.
+    /// </summary>
+    public DbSet<FishingReel> FishingReel => Set<FishingReel>();
+    
+    /// <summary>
+    ///     Катушка.
+    /// </summary>
+    public DbSet<FishingReelType> FishingReelType => Set<FishingReelType>();
+
     /// <summary>
     ///     Категория приманки.
     /// </summary>
@@ -37,7 +53,7 @@ public class AppDbContext: DbContext
     /// <summary>
     ///    Зимняя приманка. Балансир.
     /// </summary>
-    public DbSet<Rocker> Rocker => Set<Rocker>();
+    public DbSet<WinterRocker> WinterRocker => Set<WinterRocker>();
     
     /// <summary>
     ///    Зимняя приманка. Мормышка.
@@ -57,27 +73,27 @@ public class AppDbContext: DbContext
     /// <summary>
     ///    Спиннинг. Джиг.
     /// </summary>
-    public DbSet<Jig> Jig => Set<Jig>();
+    public DbSet<SpinningJig> SpinningJig => Set<SpinningJig>();
     
     /// <summary>
     ///    Спиннинг. Блесна.
     /// </summary>
-    public DbSet<Spoon> Spoon => Set<Spoon>();
+    public DbSet<SpinningSpoon> SpinningSpoon => Set<SpinningSpoon>();
     
     /// <summary>
     ///    Спиннинг. Воблер.
     /// </summary>
-    public DbSet<Vobler> Vobler => Set<Vobler>();
+    public DbSet<SpinningVobler> SpinningVobler => Set<SpinningVobler>();
     
     /// <summary>
     ///    Поплавочная удочка. Живая насадка.
     /// </summary>
-    public DbSet<Alive> Alive => Set<Alive>();
+    public DbSet<FloatAlive> FloatAlive => Set<FloatAlive>();
     
     /// <summary>
     ///    Поплавочная удочка. Растительная насадка.
     /// </summary>
-    public DbSet<Corn> Corn => Set<Corn>();
+    public DbSet<FloatCorn> FloatCorn => Set<FloatCorn>();
     
     /// <summary>
     ///    Фидер / Донка. Живая насадка.
@@ -99,12 +115,12 @@ public class AppDbContext: DbContext
         modelBuilder.Entity<FeederAlive>().ToTable("FeederAlives");
         modelBuilder.Entity<FeederBoil>().ToTable("FeederBoils");
         modelBuilder.Entity<FeederCorn>().ToTable("FeederCorns");
-        modelBuilder.Entity<Alive>().ToTable("Alives");
-        modelBuilder.Entity<Corn>().ToTable("Corns");
-        modelBuilder.Entity<Jig>().ToTable("Jigs");
-        modelBuilder.Entity<Spoon>().ToTable("Spoons");
-        modelBuilder.Entity<Vobler>().ToTable("Voblers");
-        modelBuilder.Entity<Rocker>().ToTable("Rockers");
+        modelBuilder.Entity<FloatAlive>().ToTable("FloatAlives");
+        modelBuilder.Entity<FloatCorn>().ToTable("FloatCorns");
+        modelBuilder.Entity<SpinningJig>().ToTable("SpinningJigs");
+        modelBuilder.Entity<SpinningSpoon>().ToTable("SpinningSpoons");
+        modelBuilder.Entity<SpinningVobler>().ToTable("SpinningVoblers");
+        modelBuilder.Entity<WinterRocker>().ToTable("WinterRockers");
         modelBuilder.Entity<WinterJig>().ToTable("WinterJigs");
         modelBuilder.Entity<WinterSpoon>().ToTable("WinterSpoons");
         modelBuilder.Entity<WinterVobler>().ToTable("WinterVobler");

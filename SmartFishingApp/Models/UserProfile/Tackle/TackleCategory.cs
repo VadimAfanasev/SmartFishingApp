@@ -13,7 +13,7 @@ public class TackleCategory
     /// <summary>
     ///     ID сущности
     /// </summary>
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     
     /// <summary>
     ///     Название категории

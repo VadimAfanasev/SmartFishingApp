@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SmartFishingApp.Models.Tackle.TackleTypes.Winter;
+namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
 
 /// <summary>
-///     Балансир
+///     Блесна
 /// </summary>
-public class Rocker: TackleBase
+public class SpinningSpoon: TackleBase
 {
     /// <summary>
     ///     Название производителя
@@ -18,14 +18,14 @@ public class Rocker: TackleBase
     public string? Model { get; set; }
     
     /// <summary>
-    ///     Вес приманки
+    ///     Форма приманки
     /// </summary>
-    public double? Weight { get; set; }
+    public string? Form { get; set; }
     
     /// <summary>
-    ///     Длинна приманки
+    ///     Размер приманки
     /// </summary>
-    public double? Length { get; set; }
+    public double? SizeNumber { get; set; }
     
     /// <summary>
     ///     Цвет приманки
