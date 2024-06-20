@@ -36,5 +36,5 @@ public class TypeOfFishing
     /// </summary>
     public string? Commentary { get; set; }
     
-    // TackleCategory (все категории приманок из созданных моделей)
+    // Начинаю писать эндпоинты
 }
