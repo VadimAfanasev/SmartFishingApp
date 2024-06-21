@@ -36,5 +36,6 @@ public class TypeOfFishing
     /// </summary>
     public string? Commentary { get; set; }
     
-    // Начинаю писать эндпоинты
+    // Приступить к написанию эндпоинтов
+    // подумать над реализацией softDelete
 }
