@@ -37,5 +37,6 @@ public class TypeOfFishing
     public string? Commentary { get; set; }
     
     // Приступить к написанию эндпоинтов
-    // подумать над реализацией softDelete
+    // Подумать над реализацией softDelete
+    // Добавить поле размер шпули к катушке
 }

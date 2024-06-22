@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "71rReIu9ELba+b46VSNlCTDOkjyon8pRLSIcHENV1YdEacI8hzg3LNwNquajpKXQoGdCFtbrY/pfL1WhX6E8ow==",
+  "dgSpecHash": "dFGK17Ji1KqKqWFAGuiOqT6ncPSEoVfi0kk9iMPiBN5LKE4K/hA8k75EnxPtpnzeKhn2DHwudW6EoSXFhg6MBg==",
   "success": true,
   "projectFilePath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\SmartFishingApp\\SmartFishingApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Вадим\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Вадим\\.nuget\\packages\\jetbrains.annotations\\2024.2.0-eap1\\jetbrains.annotations.2024.2.0-eap1.nupkg.sha512",
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
     "C:\\Users\\Вадим\\.nuget\\packages\\microsoft.codeanalysis.common\\2.3.1\\microsoft.codeanalysis.common.2.3.1.nupkg.sha512",
