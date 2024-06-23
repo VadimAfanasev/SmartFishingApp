@@ -35,11 +35,34 @@ public class FishingReelsController : ControllerBase
         _fishingReelService = fishingReelService;
     }
     
+    /// <summary>
+    ///     Создание сущности рыболовной катушки
+    /// </summary>
+    /// <param name="createDto"> Дто создаваемого объекта катушки </param>
     [HttpPost]
     [Route("")]
     public async Task CreateReelAsync([FromBody] FishingReelCreateDto createDto)
     {
         var reel = _fishingReelMapperService.CreationDtoToDomainModel(createDto);
-        await _fishingReelService.CreateAreasAsync(reel);
+        await _fishingReelService.CreateFishingReelAsync(reel);
     }
+
+    [HttpDelete]
+    [Route("")]
+    public async Task DeleteReelAsync([FromQuery] string id)
+    {
+        await _fishingReelService.DeleteFishingReelAsync(id);
+    }
+    
+    [HttpGet]
+    [Route("")]
+    public async Task<FishingReelReadDto> GetReelAsync([FromQuery] string id)
+    {
+        var fishingReel = await _fishingReelService.GetFishingReelAsync(id);
+        return _fishingReelMapperService.DomainModelToReadDto(fishingReel);
+    }
+    
+    
+    // эндпоинт получить все катушки
+    // эндпоинт на получение катушки со всеми зависимостями
 }

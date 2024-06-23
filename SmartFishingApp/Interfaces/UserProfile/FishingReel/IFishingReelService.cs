@@ -8,5 +8,17 @@ public interface IFishingReelService
     ///     Создание катушки.
     /// </summary>
     /// <param name="fishingReel"> Катушка. </param>
-    Task CreateAreasAsync(FishingReel fishingReel);
+    Task CreateFishingReelAsync(FishingReel fishingReel);
+
+    /// <summary>
+    ///     Удаление катушки.
+    /// </summary>
+    /// <param name="id"> Id сущности. </param>
+    Task DeleteFishingReelAsync(string id);
+    
+    /// <summary>
+    ///     Получить катушку.
+    /// </summary>
+    /// <param name="id"> Id сущности. </param>
+    Task GetFishingReelAsync(string id);
 }
