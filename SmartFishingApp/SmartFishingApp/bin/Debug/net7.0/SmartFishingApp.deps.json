@@ -9,13 +9,17 @@
       "SmartFishingApp/1.0.0": {
         "dependencies": {
           "Database": "1.0.0",
+          "Interfaces": "1.0.0",
+          "JetBrains.Annotations": "2024.2.0-eap1",
           "Microsoft.AspNetCore.OpenApi": "7.0.7",
           "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.InMemory": "7.0.20",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.20",
           "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.20",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.18",
+          "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -27,6 +31,14 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "JetBrains.Annotations/2024.2.0-eap1": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2024.2.0.0"
           }
         }
       },
@@ -1260,12 +1272,30 @@
           "Database.dll": {}
         }
       },
+      "Interfaces/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "Interfaces.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.2"
         },
         "runtime": {
           "Models.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "dependencies": {
+          "Database": "1.0.0",
+          "Interfaces": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "Services.dll": {}
         }
       }
     }
@@ -1282,6 +1312,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "JetBrains.Annotations/2024.2.0-eap1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Lo1vPRhwSNKz8ZN4lLiLEl7oEiojvS3/q/eSLHl6Av/CVEgfbhoDE8CjHZ9W3xSrM2Dv6gY3RprrX5fVQfz1cA==",
+      "path": "jetbrains.annotations/2024.2.0-eap1",
+      "hashPath": "jetbrains.annotations.2024.2.0-eap1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/7.0.7": {
       "type": "package",
@@ -2219,7 +2256,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -57,3 +57,8 @@ E:\Программирование\Проекты\SmartFishingApp\Backend\Smart
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.assert.dll
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.core.dll
 E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\xunit.execution.dotnet.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\JetBrains.Annotations.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Interfaces.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Services.dll
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Interfaces.pdb
+E:\Программирование\Проекты\SmartFishingApp\Backend\SmartFishingApp\SmartFishingApp\bin\Debug\net7.0\Services.pdb

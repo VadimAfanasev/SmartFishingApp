@@ -8221,6 +8221,7 @@
       "Microsoft.AspNetCore.OpenApi >= 7.0.7",
       "Microsoft.EntityFrameworkCore >= 7.0.20",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.20",
+      "Microsoft.EntityFrameworkCore.Relational >= 7.0.20",
       "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests >= 2.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.20",
       "Microsoft.EntityFrameworkCore.Tools.DotNet >= 2.0.3",
@@ -8297,6 +8298,10 @@
             "version": "[7.0.20, )"
           },
           "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[7.0.20, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[7.0.20, )"
           },
