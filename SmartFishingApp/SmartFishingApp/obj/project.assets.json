@@ -2757,6 +2757,19 @@
           "bin/placeholder/Database.dll": {}
         }
       },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -2768,6 +2781,21 @@
         },
         "runtime": {
           "bin/placeholder/Models.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Database": "1.0.0",
+          "Interfaces": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
         }
       }
     }
@@ -8169,15 +8197,26 @@
       "path": "../Database/Database.csproj",
       "msbuildProject": "../Database/Database.csproj"
     },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
       "msbuildProject": "../Models/Models.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Database >= 1.0.0",
+      "Interfaces >= 1.0.0",
       "JetBrains.Annotations >= 2024.2.0-eap1",
       "Microsoft.AspNetCore.OpenApi >= 7.0.7",
       "Microsoft.EntityFrameworkCore >= 7.0.20",
@@ -8186,6 +8225,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.20",
       "Microsoft.EntityFrameworkCore.Tools.DotNet >= 2.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.18",
+      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -8224,6 +8264,12 @@
           "projectReferences": {
             "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Database\\Database.csproj": {
               "projectPath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Database\\Database.csproj"
+            },
+            "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Interfaces\\Interfaces.csproj"
+            },
+            "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Services\\Services.csproj": {
+              "projectPath": "E:\\Программирование\\Проекты\\SmartFishingApp\\Backend\\SmartFishingApp\\Services\\Services.csproj"
             }
           }
         }

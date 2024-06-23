@@ -18,7 +18,7 @@ public class FishingReelMapperService : IFishingReelMapperService
     /// <param name="context"> Контекст БД. </param>
     public FishingReelMapperService(AppDbContext context)
     {
-        _context = _context;
+        _context = context;
     }
     
     /// <inheritdoc />

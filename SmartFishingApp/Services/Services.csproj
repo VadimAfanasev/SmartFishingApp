@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="UserProfile\" />
+      <ProjectReference Include="..\Database\Database.csproj" />
+      <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+      <ProjectReference Include="..\Models\Models.csproj" />
     </ItemGroup>
 
 </Project>
