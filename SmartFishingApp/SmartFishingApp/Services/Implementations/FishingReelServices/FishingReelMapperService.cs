@@ -28,12 +28,42 @@ public class FishingReelMapperService : IFishingReelMapperService
         {
             Brand = createDto.Brand,
             Type = createDto.Type,
-            ReelType = _context.FishingReelType.FirstOrDefault(c=>c.Id == int.Parse(createDto.ReelType)),
-            TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == int.Parse(createDto.TypeOfFishing)),
+            ReelType = _context.FishingReelType.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.ReelType)),
+            TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.TypeOfFishing)),
             Photo = createDto.Photo,
             Commentary =  createDto.Commentary
         };
 
         return fishingReel;
+    }
+    
+    /// <inheritdoc />
+    public FishingReelReadDto DomainModelToReadDto(FishingReel fishingReel)
+    {
+        var fishingReelOut = new FishingReelReadDto
+        {
+            Brand = fishingReel.Brand,
+            Type  = fishingReel.Type,
+            ReelType  = fishingReel.ReelType?.Name,    
+            TypeOfFishing =  fishingReel.TypeOfFishing?.Name,
+            Photo  = fishingReel.Photo,
+            Commentary  = fishingReel.Commentary
+        };
+        
+        return fishingReelOut;
+    }
+    
+    /// <inheritdoc />
+    public List<FishingReelReadDto> DomainModelToReadReelsDto(List<FishingReel> fishingReels)
+    {
+        return fishingReels.Select(fishingReel => new FishingReelReadDto
+        {
+            Brand = fishingReel.Brand,
+            Type = fishingReel.Type,
+            ReelType = fishingReel.ReelType?.Name,
+            TypeOfFishing = fishingReel.TypeOfFishing?.Name,
+            Photo = fishingReel.Photo,
+            Commentary = fishingReel.Commentary
+        }).ToList();
     }
 }

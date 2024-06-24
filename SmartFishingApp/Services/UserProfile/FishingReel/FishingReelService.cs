@@ -39,8 +39,22 @@ public class FishingReelService: IFishingReelService
     }
 
     /// <inheritdoc />
-    public async Task GetFishingReelAsync(string id)
+    public async Task<FishingReel> GetFishingReelAsync(string id)
     {
-        throw new NotImplementedException();
+        var fishingReel = await _context.FishingReel.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
+        
+        if (fishingReel != null)
+            return fishingReel;
+        else
+            throw new KeyNotFoundException ($"Катушка не найдена");
+    }
+    
+    /// <inheritdoc />
+    public async Task<List<FishingReel>> GetFishingReelsAsync()
+    {
+        var fishingReels = await _context.FishingReel.AsNoTracking().ToListAsync();
+        
+        return fishingReels;
     }
 }

@@ -17,8 +17,13 @@ public interface IFishingReelService
     Task DeleteFishingReelAsync(string id);
     
     /// <summary>
-    ///     Получить катушку.
+    ///     Получение катушки по Id.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    Task GetFishingReelAsync(string id);
+    Task<FishingReel> GetFishingReelAsync(string id);
+    
+    /// <summary>
+    ///     Получение списка всех катушек.
+    /// </summary>
+    Task<List<FishingReel>> GetFishingReelsAsync();
 }
