@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using SmartFishingApp.Models.TypeOfFishing;
 
 namespace Models.UserProfile.FishingReel;
@@ -15,11 +16,13 @@ public class FishingReel
     /// <summary>
     ///     Название марки
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название марки катушки")]
     public string? Brand { get; set; }
     
     /// <summary>
     ///     Название модели
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название модели катушки")]
     public string? Type { get; set; }
     
     /// <summary>
@@ -40,5 +43,6 @@ public class FishingReel
     /// <summary>
     ///     Комментарий
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

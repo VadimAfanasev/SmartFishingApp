@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Models.UserProfile.FishingReel;
 
 /// <summary>
@@ -13,10 +15,12 @@ public class FishingReelType
     /// <summary>
     ///     Название типа катушек
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название типа катушки")]
     public string Name { get; set; }
     
     /// <summary>
     ///     Комментарий
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

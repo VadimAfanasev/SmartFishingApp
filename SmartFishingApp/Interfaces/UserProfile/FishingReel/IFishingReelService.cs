@@ -26,4 +26,11 @@ public interface IFishingReelService
     ///     Получение списка всех катушек.
     /// </summary>
     Task<List<FishingReel>> GetFishingReelsAsync();
+    
+    /// <summary>
+    ///     Получение катушки с вложениями по Id.
+    /// </summary>
+    /// <param name="id"> Id сущности. </param>
+    /// <returns> Объект катушки с вложениями </returns>
+    Task<FishingReel> GetFishingReelAttachmentAsync(string id);
 }

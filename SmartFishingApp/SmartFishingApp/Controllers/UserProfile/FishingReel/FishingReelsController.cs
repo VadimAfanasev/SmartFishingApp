@@ -82,6 +82,19 @@ public class FishingReelsController : ControllerBase
         var fishingReels = await _fishingReelService.GetFishingReelsAsync();
         return _fishingReelMapperService.DomainModelToReadReelsDto(fishingReels);
     }
-
-    // эндпоинт на получение катушки со всеми зависимостями
+    
+    /// <summary>
+    ///     Получение одного экземпляра рыболовной катушки с вложенными сущностями.
+    /// </summary>
+    /// <param name="id"> Id сущности. </param>
+    /// <returns> DTO катушки. </returns>
+    [HttpGet]
+    [Route("reel")]
+    public async Task<FishingReelAttachmentReadDto> GetReelAttachmentAsync([FromQuery] string id)
+    {
+        var fishingReelAttachment = await _fishingReelService.GetFishingReelAttachmentAsync(id);
+        return _fishingReelMapperService.DomainModelToReadReelAttachmentDto(fishingReelAttachment);
+    }
+    
+    // Подумать как будет выглядеть эндпоинт на получение катушки с вложенными сущностями
 }
