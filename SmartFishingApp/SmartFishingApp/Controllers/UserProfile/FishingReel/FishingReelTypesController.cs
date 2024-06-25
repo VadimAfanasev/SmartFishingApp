@@ -1,16 +1,12 @@
-using Interfaces.UserProfile.FishingReel;
-using SmartFishingApp.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SmartFishingApp.Controllers.UserProfile.FishingReel;
-
-using Microsoft.AspNetCore.Mvc;
-using SmartFishingApp.Dto.UserProfile.FishingReel;
 
 /// <summary>
 ///     Контроллер для работы с рыболовными катушками.
 /// </summary>
-[Route("api/reels")]
-public class FishingReelsController : ControllerBase
+[Route("api/reelTypes")]
+public class FishingReelTypesController : ControllerBase
 {
     /// <summary>
     ///     Сервис Маппинга сущностей FishingReel.
@@ -27,7 +23,7 @@ public class FishingReelsController : ControllerBase
     /// </summary>
     /// <param name="fishingReelMapperService"> Сервис Маппинга сущностей FishingReel. </param>
     /// <param name="fishingReelService"> Сервис для работы с сущностями FishingReel. </param>
-    public FishingReelsController(IFishingReelMapperService fishingReelMapperService,
+    public FishingReelTypesController(IFishingReelMapperService fishingReelMapperService,
         IFishingReelService fishingReelService)
     {
         _fishingReelMapperService = fishingReelMapperService;
@@ -81,4 +77,6 @@ public class FishingReelsController : ControllerBase
         var fishingReels = await _fishingReelService.GetFishingReelsAsync();
         return _fishingReelMapperService.DomainModelToReadReelsDto(fishingReels);
     }
+
+    // Помимо основных CRUD, нужен эндпоинт на получение типа катушки со списком катушек этого типа.
 }

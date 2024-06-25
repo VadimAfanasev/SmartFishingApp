@@ -6,9 +6,9 @@ using SmartFishingApp.Services.Interfaces;
 namespace SmartFishingApp.Services.Implementations.FishingReelServices;
 
 /// <summary>
-///     Сервис маппинга моделей катушек.
+///     Сервис маппинга типов катушек.
 /// </summary>
-public class FishingReelMapperService : IFishingReelMapperService
+public class FishingReelTypeMapperService : IFishingReelMapperService
 {
     /// <summary>
     ///     Контекст БД.
@@ -19,15 +19,15 @@ public class FishingReelMapperService : IFishingReelMapperService
     ///     Конструктор по умолчанию.
     /// </summary>
     /// <param name="context"> Контекст БД. </param>
-    public FishingReelMapperService(AppDbContext context)
+    public FishingReelTypeMapperService(AppDbContext context)
     {
         _context = context;
     }
     
     /// <inheritdoc />
-    public FishingReel CreationDtoToDomainModel(FishingReelCreateDto createDto)
+    public FishingReelType CreationDtoToDomainModel(FishingReelTypeCreateDto createDto)
     {
-        var fishingReel = new FishingReel
+        var fishingReel = new FishingReelType
         {
             Brand = createDto.Brand,
             Type = createDto.Type,
@@ -37,13 +37,13 @@ public class FishingReelMapperService : IFishingReelMapperService
             Commentary =  createDto.Commentary
         };
 
-        return fishingReel;
+        return fishingReelType;
     }
     
     /// <inheritdoc />
-    public FishingReelReadDto DomainModelToReadDto(FishingReel fishingReel)
+    public FishingReelTypeReadDto DomainModelToReadDto(FishingReelType fishingReel)
     {
-        var fishingReelOut = new FishingReelReadDto
+        var fishingReelOut = new FishingReelTypeReadDto
         {
             Brand = fishingReel.Brand,
             Type  = fishingReel.Type,
@@ -53,13 +53,13 @@ public class FishingReelMapperService : IFishingReelMapperService
             Commentary  = fishingReel.Commentary
         };
         
-        return fishingReelOut;
+        return fishingReelTypeOut;
     }
     
     /// <inheritdoc />
-    public List<FishingReelReadDto> DomainModelToReadReelsDto(List<FishingReel> fishingReels)
+    public List<FishingReelTypeReadDto> DomainModelToReadReelTypesDto(List<FishingReelType> fishingReelTypes)
     {
-        return fishingReels.Select(fishingReel => new FishingReelReadDto
+        return fishingReelTypes.Select(fishingReel => new FishingReelTypeReadDto
         {
             Brand = fishingReel.Brand,
             Type = fishingReel.Type,
