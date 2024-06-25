@@ -28,4 +28,11 @@ public interface IFishingReelMapperService
     /// <param name="fishingReels"> Список доменных моделей катушки. </param>
     /// <returns> Список <see cref="FishingReelReadDto" />. </returns>
     List<FishingReelReadDto> DomainModelToReadReelsDto(List<FishingReel> fishingReels);
+    
+    /// <summary>
+    ///     Создание ДТО модели <see cref="FishingReelAttachmentReadDto" /> из <see cref="FishingReel" />
+    /// </summary>
+    /// <param name="fishingReelAttachment"> Катушка с вложенными сущностями. </param>
+    /// <returns> <see cref="FishingReelAttachmentReadDto" />. </returns>
+    FishingReelAttachmentReadDto DomainModelToReadReelAttachmentDto(FishingReel fishingReelAttachment);
 }

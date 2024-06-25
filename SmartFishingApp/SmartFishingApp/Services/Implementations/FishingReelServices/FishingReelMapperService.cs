@@ -66,4 +66,10 @@ public class FishingReelMapperService : IFishingReelMapperService
             Commentary = fishingReel.Commentary
         }).ToList();
     }
+
+    /// <inheritdoc />
+    public FishingReelAttachmentReadDto DomainModelToReadReelAttachmentDto(FishingReel fishingReelAttachment)
+    {
+        
+    }
 }
