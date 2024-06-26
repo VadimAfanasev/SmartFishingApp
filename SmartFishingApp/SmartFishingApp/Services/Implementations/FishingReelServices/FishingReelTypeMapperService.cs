@@ -8,7 +8,7 @@ namespace SmartFishingApp.Services.Implementations.FishingReelServices;
 /// <summary>
 ///     Сервис маппинга типов катушек.
 /// </summary>
-public class FishingReelTypeMapperService : IFishingReelMapperService
+public class FishingReelTypeMapperService : IFishingReelTypeMapperService
 {
     /// <summary>
     ///     Контекст БД.
@@ -27,13 +27,9 @@ public class FishingReelTypeMapperService : IFishingReelMapperService
     /// <inheritdoc />
     public FishingReelType CreationDtoToDomainModel(FishingReelTypeCreateDto createDto)
     {
-        var fishingReel = new FishingReelType
+        var fishingReelType = new FishingReelType
         {
-            Brand = createDto.Brand,
-            Type = createDto.Type,
-            ReelType = _context.FishingReelType.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.ReelType)),
-            TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.TypeOfFishing)),
-            Photo = createDto.Photo,
+            Name = createDto.Name,
             Commentary =  createDto.Commentary
         };
 
@@ -43,14 +39,10 @@ public class FishingReelTypeMapperService : IFishingReelMapperService
     /// <inheritdoc />
     public FishingReelTypeReadDto DomainModelToReadDto(FishingReelType fishingReel)
     {
-        var fishingReelOut = new FishingReelTypeReadDto
+        var fishingReelTypeOut = new FishingReelTypeReadDto
         {
-            Brand = fishingReel.Brand,
-            Type  = fishingReel.Type,
-            ReelType  = fishingReel.ReelType?.Name,    
-            TypeOfFishing =  fishingReel.TypeOfFishing?.Name,
-            Photo  = fishingReel.Photo,
-            Commentary  = fishingReel.Commentary
+            Name = fishingReel.Name,
+            Commentary =  fishingReel.Commentary
         };
         
         return fishingReelTypeOut;
@@ -61,12 +53,8 @@ public class FishingReelTypeMapperService : IFishingReelMapperService
     {
         return fishingReelTypes.Select(fishingReel => new FishingReelTypeReadDto
         {
-            Brand = fishingReel.Brand,
-            Type = fishingReel.Type,
-            ReelType = fishingReel.ReelType?.Name,
-            TypeOfFishing = fishingReel.TypeOfFishing?.Name,
-            Photo = fishingReel.Photo,
-            Commentary = fishingReel.Commentary
+            Name = fishingReel.Name,
+            Commentary =  fishingReel.Commentary
         }).ToList();
     }
 }

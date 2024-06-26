@@ -57,18 +57,4 @@ public class FishingReelService: IFishingReelService
         
         return fishingReels;
     }
-    
-    /// <inheritdoc />
-    public async Task<FishingReel> GetFishingReelAttachmentAsync(string id)
-    {
-        var fishingReel = await _context.FishingReel
-            .Include(c=>c.TypeOfFishing)
-            .Include(c=>c.ReelType)
-            .FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
-
-        if (fishingReel != null)
-            return fishingReel;
-        else
-            throw new KeyNotFoundException ($"Катушка не найдена");
-    }
 }

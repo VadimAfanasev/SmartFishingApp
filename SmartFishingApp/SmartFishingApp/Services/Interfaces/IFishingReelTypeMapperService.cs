@@ -1,4 +1,5 @@
 using Models.UserProfile.FishingReel;
+using SmartFishingApp.Dto.UserProfile.FishingReel;
 
 namespace SmartFishingApp.Services.Interfaces;
 
@@ -26,5 +27,5 @@ public interface IFishingReelTypeMapperService
     /// </summary>
     /// <param name="fishingReels"> Список доменных моделей катушки. </param>
     /// <returns> Список <see cref="FishingReelReadDto" />. </returns>
-    List<FishingReelTypeReadDto> DomainModelToReadReelsDto(List<FishingReelType> fishingReels);
+    List<FishingReelTypeReadDto> DomainModelToReadReelTypesDto(List<FishingReelType> fishingReels);
 }

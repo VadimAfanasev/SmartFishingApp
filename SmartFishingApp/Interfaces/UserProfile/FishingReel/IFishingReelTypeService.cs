@@ -2,28 +2,28 @@ namespace Interfaces.UserProfile.FishingReel;
 
 using Models.UserProfile.FishingReel;
 
-public interface IFishingReelService
+public interface IFishingReelTypeService
 {
     /// <summary>
     ///     Создание катушки.
     /// </summary>
     /// <param name="fishingReel"> Катушка. </param>
-    Task CreateFishingReelAsync(FishingReel fishingReel);
+    Task CreateFishingReelTypeAsync(FishingReelType fishingReel);
 
     /// <summary>
     ///     Удаление катушки.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    Task DeleteFishingReelAsync(string id);
+    Task DeleteFishingReelTypeAsync(string id);
     
     /// <summary>
     ///     Получение катушки по Id.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    Task<FishingReel> GetFishingReelAsync(string id);
+    Task<FishingReelType> GetFishingReelTypeAsync(string id);
     
     /// <summary>
     ///     Получение списка всех катушек.
     /// </summary>
-    Task<List<FishingReel>> GetFishingReelsAsync();
+    Task<List<FishingReelType>> GetFishingReelTypesAsync();
 }

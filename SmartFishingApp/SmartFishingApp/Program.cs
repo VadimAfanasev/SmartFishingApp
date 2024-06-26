@@ -41,9 +41,11 @@ app.Run();
 static void RegisterMappingServices(IServiceCollection services)
 {
     services.AddScoped<IFishingReelMapperService, FishingReelMapperService>();
+    services.AddScoped<IFishingReelTypeMapperService, FishingReelTypeMapperService>();
 }
 
 static void RegisterSmartFishingAppServices(IServiceCollection services)
 {
     services.AddScoped<IFishingReelService, FishingReelService>();
+    services.AddScoped<IFishingReelTypeService, FishingReelTypeService>();
 }

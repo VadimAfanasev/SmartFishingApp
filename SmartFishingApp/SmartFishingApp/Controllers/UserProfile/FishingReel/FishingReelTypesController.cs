@@ -14,18 +14,18 @@ public class FishingReelTypesController : ControllerBase
     /// <summary>
     ///     Сервис Маппинга сущностей FishingReel.
     /// </summary>
-    private readonly IFishingReelTypeMapperService _fishingReelMapperService;
+    private readonly IFishingReelTypeMapperService _fishingReelTypeMapperService;
     
     /// <summary>
     ///     Сервис для работы с сущностью катушки.
     /// </summary>
-    private readonly IFishingReelTypeService _fishingReelService;
+    private readonly IFishingReelTypeService _fishingReelTypeService;
     
     /// <summary>
     ///     Конструктор.
     /// </summary>
-    /// <param name="fishingReelMapperService"> Сервис Маппинга сущностей FishingReel. </param>
-    /// <param name="fishingReelService"> Сервис для работы с сущностями FishingReel. </param>
+    /// <param name="fishingReelTypeMapperService"> Сервис Маппинга сущностей FishingReelType. </param>
+    /// <param name="fishingReelTypeService"> Сервис для работы с сущностями FishingReelType. </param>
     public FishingReelTypesController(IFishingReelTypeMapperService fishingReelTypeMapperService,
         IFishingReelTypeService fishingReelTypeService)
     {
@@ -65,7 +65,7 @@ public class FishingReelTypesController : ControllerBase
     [Route("")]
     public async Task<FishingReelTypeReadDto> GetReelTypeAsync([FromQuery] string id)
     {
-        var fishingReel = await _fishingReelTypeService.GetFishingReelAsync(id);
+        var fishingReel = await _fishingReelTypeService.GetFishingReelTypeAsync(id);
         return _fishingReelTypeMapperService.DomainModelToReadDto(fishingReel);
     }
     
@@ -77,8 +77,8 @@ public class FishingReelTypesController : ControllerBase
     [Route("reelTypes")]
     public async Task<List<FishingReelTypeReadDto>> GetReelsAsync()
     {
-        var fishingReelTypes = await _fishingReelTypeService.GetFishingReelsAsync();
-        return _fishingReelTypeMapperService.DomainModelToReadReelsDto(fishingReelTypes);
+        var fishingReelTypes = await _fishingReelTypeService.GetFishingReelTypesAsync();
+        return _fishingReelTypeMapperService.DomainModelToReadReelTypesDto(fishingReelTypes);
     }
 
     // Помимо основных CRUD, нужен эндпоинт на получение типа катушки со списком катушек этого типа.

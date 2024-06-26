@@ -1,17 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Models.UserProfile.FishingReel;
+namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 
-/// <summary>
-///     Класс описывающий тип катушек
-/// </summary>
-public class FishingReelType
+public class FishingReelTypeCreateDto
 {
-    /// <summary>
-    ///     ID сущности
-    /// </summary>
-    public int Id { get; set; }
-    
     /// <summary>
     ///     Название типа катушек
     /// </summary>
