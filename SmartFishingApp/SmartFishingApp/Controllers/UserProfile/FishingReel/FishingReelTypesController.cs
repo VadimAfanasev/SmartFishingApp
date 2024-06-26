@@ -75,11 +75,22 @@ public class FishingReelTypesController : ControllerBase
     /// <returns> Список DTO всех катушек.  </returns>
     [HttpGet]
     [Route("reelTypes")]
-    public async Task<List<FishingReelTypeReadDto>> GetReelsAsync()
+    public async Task<List<FishingReelTypeReadDto>> GetReelTypesAsync()
     {
         var fishingReelTypes = await _fishingReelTypeService.GetFishingReelTypesAsync();
         return _fishingReelTypeMapperService.DomainModelToReadReelTypesDto(fishingReelTypes);
     }
-
+    
+    /// <summary>
+    ///     Получение типа катушки c катушками этого типа.
+    /// </summary>
+    /// <returns> DTO катушки c катушками этого типа.  </returns>
+    [HttpGet]
+    [Route("reelTypeAttachment")]
+    public async Task<List<FishingReelTypeAttachmentReadDto>> GetReelTypesAttachmentAsync([FromQuery] string id)
+    {
+        var fishingReelTypesAttachment = await _fishingReelTypeService.GetFishingReelTypesAttachmentAsync(id);
+        return _fishingReelTypeMapperService.DomainModelToReadReelTypesAttachmentDto(fishingReelTypesAttachment);
+    }
     // Помимо основных CRUD, нужен эндпоинт на получение типа катушки со списком катушек этого типа.
 }
