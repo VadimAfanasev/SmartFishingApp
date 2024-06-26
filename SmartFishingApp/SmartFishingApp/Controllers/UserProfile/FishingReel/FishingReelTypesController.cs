@@ -1,4 +1,7 @@
+using Interfaces.UserProfile.FishingReel;
 using Microsoft.AspNetCore.Mvc;
+using SmartFishingApp.Dto.UserProfile.FishingReel;
+using SmartFishingApp.Services.Interfaces;
 
 namespace SmartFishingApp.Controllers.UserProfile.FishingReel;
 
@@ -11,23 +14,23 @@ public class FishingReelTypesController : ControllerBase
     /// <summary>
     ///     Сервис Маппинга сущностей FishingReel.
     /// </summary>
-    private readonly IFishingReelMapperService _fishingReelMapperService;
+    private readonly IFishingReelTypeMapperService _fishingReelMapperService;
     
     /// <summary>
     ///     Сервис для работы с сущностью катушки.
     /// </summary>
-    private readonly IFishingReelService _fishingReelService;
+    private readonly IFishingReelTypeService _fishingReelService;
     
     /// <summary>
     ///     Конструктор.
     /// </summary>
     /// <param name="fishingReelMapperService"> Сервис Маппинга сущностей FishingReel. </param>
     /// <param name="fishingReelService"> Сервис для работы с сущностями FishingReel. </param>
-    public FishingReelTypesController(IFishingReelMapperService fishingReelMapperService,
-        IFishingReelService fishingReelService)
+    public FishingReelTypesController(IFishingReelTypeMapperService fishingReelTypeMapperService,
+        IFishingReelTypeService fishingReelTypeService)
     {
-        _fishingReelMapperService = fishingReelMapperService;
-        _fishingReelService = fishingReelService;
+        _fishingReelTypeMapperService = fishingReelTypeMapperService;
+        _fishingReelTypeService = fishingReelTypeService;
     }
     
     /// <summary>
@@ -36,10 +39,10 @@ public class FishingReelTypesController : ControllerBase
     /// <param name="createDto"> Дто создаваемого объекта катушки </param>
     [HttpPost]
     [Route("")]
-    public async Task CreateReelAsync([FromBody] FishingReelCreateDto createDto)
+    public async Task CreateReelAsync([FromBody] FishingReelTypeCreateDto createDto)
     {
-        var reel = _fishingReelMapperService.CreationDtoToDomainModel(createDto);
-        await _fishingReelService.CreateFishingReelAsync(reel);
+        var reel = _fishingReelTypeMapperService.CreationDtoToDomainModel(createDto);
+        await _fishingReelTypeService.CreateFishingReelTypeAsync(reel);
     }
     
     /// <summary>
@@ -50,7 +53,7 @@ public class FishingReelTypesController : ControllerBase
     [Route("")]
     public async Task DeleteReelAsync([FromQuery] string id)
     {
-        await _fishingReelService.DeleteFishingReelAsync(id);
+        await _fishingReelTypeService.DeleteFishingReelTypeAsync(id);
     }
     
     /// <summary>
@@ -60,10 +63,10 @@ public class FishingReelTypesController : ControllerBase
     /// <returns> DTO катушки. </returns>
     [HttpGet]
     [Route("")]
-    public async Task<FishingReelReadDto> GetReelAsync([FromQuery] string id)
+    public async Task<FishingReelTypeReadDto> GetReelTypeAsync([FromQuery] string id)
     {
-        var fishingReel = await _fishingReelService.GetFishingReelAsync(id);
-        return _fishingReelMapperService.DomainModelToReadDto(fishingReel);
+        var fishingReel = await _fishingReelTypeService.GetFishingReelAsync(id);
+        return _fishingReelTypeMapperService.DomainModelToReadDto(fishingReel);
     }
     
     /// <summary>
@@ -71,11 +74,11 @@ public class FishingReelTypesController : ControllerBase
     /// </summary>
     /// <returns> Список DTO всех катушек.  </returns>
     [HttpGet]
-    [Route("reels")]
-    public async Task<List<FishingReelReadDto>> GetReelsAsync()
+    [Route("reelTypes")]
+    public async Task<List<FishingReelTypeReadDto>> GetReelsAsync()
     {
-        var fishingReels = await _fishingReelService.GetFishingReelsAsync();
-        return _fishingReelMapperService.DomainModelToReadReelsDto(fishingReels);
+        var fishingReelTypes = await _fishingReelTypeService.GetFishingReelsAsync();
+        return _fishingReelTypeMapperService.DomainModelToReadReelsDto(fishingReelTypes);
     }
 
     // Помимо основных CRUD, нужен эндпоинт на получение типа катушки со списком катушек этого типа.
