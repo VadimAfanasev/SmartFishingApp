@@ -57,7 +57,8 @@ public class FishingReelTypeService: IFishingReelTypeService
         return fishingReelTypes;
     }
 
-    public async Task<FishingReelType> GetFishingReelTypesAttachmentAsync(string id)
+    /// <inheritdoc />
+    public async Task<FishingReelTypeAttachmentDto> GetFishingReelTypesAttachmentAsync(string id)
     {
         var fishingReelType = await _context.FishingReelType
             .Include(frt => frt.) // Включаем сущности FishingReel

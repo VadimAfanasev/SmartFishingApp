@@ -32,5 +32,5 @@ public interface IFishingReelTypeService
     /// </summary>
     /// <param name="id"> Id типа катушки. </param>
     /// <returns> Тип катушки с катушками этогт типа. </returns>
-    Task<FishingReelType> GetFishingReelTypesAttachmentAsync(string id);
+    Task<FishingReelTypeAttachmentDto> GetFishingReelTypesAttachmentAsync(string id);
 }

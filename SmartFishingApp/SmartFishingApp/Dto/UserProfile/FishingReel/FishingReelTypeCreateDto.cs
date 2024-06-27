@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 
+/// <summary>
+///     Dto для создания типа катушек.
+/// </summary>
 public class FishingReelTypeCreateDto
 {
     /// <summary>
