@@ -87,7 +87,7 @@ public class FishingReelTypesController : ControllerBase
     /// <returns> DTO катушки c катушками этого типа.  </returns>
     [HttpGet]
     [Route("reelTypeAttachment")]
-    public async Task<List<FishingReelTypeAttachmentReadDto>> GetReelTypesAttachmentAsync([FromQuery] string id)
+    public async Task<FishingReelTypeAttachmentReadDto> GetReelTypesAttachmentAsync([FromQuery] string id)
     {
         var fishingReelTypesAttachment = await _fishingReelTypeService.GetFishingReelTypesAttachmentAsync(id);
         return _fishingReelTypeMapperService.DomainModelToReadReelTypesAttachmentDto(fishingReelTypesAttachment);

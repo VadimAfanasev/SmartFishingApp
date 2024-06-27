@@ -1,11 +1,10 @@
-using JetBrains.Annotations;
+namespace Models.Dto.UserProfile.FishingReel;
 
-namespace SmartFishingApp.Dto.UserProfile.FishingReel;
+using Models.UserProfile.FishingReel;
 
 /// <summary>
-///     Dto для отображения типа катушки с катушками этого типа.
+///     Dto для получения из контекста типа катушки с катушками этого типа.
 /// </summary>
-[PublicAPI]
 public class FishingReelTypeAttachmentDto
 {
     /// <summary>
@@ -21,5 +20,5 @@ public class FishingReelTypeAttachmentDto
     /// <summary>
     ///     Катушки данного типа
     /// </summary>
-    public List<FishingReelReadDto> FishingReels { get; set; }
+    public List<FishingReel> FishingReels { get; set; }
 }

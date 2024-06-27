@@ -1,6 +1,7 @@
 using Database.Context;
 using Interfaces.UserProfile.FishingReel;
 using Microsoft.EntityFrameworkCore;
+using Models.Dto.UserProfile.FishingReel;
 using Models.UserProfile.FishingReel;
 
 namespace Services.UserProfile.FishingReel;
@@ -61,10 +62,22 @@ public class FishingReelTypeService: IFishingReelTypeService
     public async Task<FishingReelTypeAttachmentDto> GetFishingReelTypesAttachmentAsync(string id)
     {
         var fishingReelType = await _context.FishingReelType
-            .Include(frt => frt.) // Включаем сущности FishingReel
-            .FirstOrDefaultAsync(frt => frt.Id == id); 
+            .FirstOrDefaultAsync(frt => frt.Id == int.Parse(id));
 
-        return fishingReelsWithType;
+        var fishingReels = await _context.FishingReel
+            .Include(c=>c.ReelType)
+            .Include(c=>c.TypeOfFishing)
+            .Where(c => c.ReelType == fishingReelType)
+            .ToListAsync();
+
+        var fishingReelTypeAttachment = new FishingReelTypeAttachmentDto()
+        {
+            Name = fishingReelType!.Name,
+            Commentary = fishingReelType.Commentary,
+            FishingReels = fishingReels
+        };
+        
+        return fishingReelTypeAttachment;
         
         // возможно стоит получать только список катушек типа переданного по Id
     }

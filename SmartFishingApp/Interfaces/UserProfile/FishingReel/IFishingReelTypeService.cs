@@ -1,3 +1,5 @@
+using Models.Dto.UserProfile.FishingReel;
+
 namespace Interfaces.UserProfile.FishingReel;
 
 using Models.UserProfile.FishingReel;
