@@ -81,4 +81,14 @@ public class FishingReelTypeService: IFishingReelTypeService
         
         // возможно стоит получать только список катушек типа переданного по Id
     }
+
+    public async Task<List<FishingReelsDto>> GetFishingReelsAsync(string id)
+    {
+        var fishingReelsDto = await _context.FishingReel
+            .Include(c=>c.ReelType)
+            .Where(c => c.ReelType.Id == int.Parse(id)).ToListAsync();
+        
+        
+        return fishingReelsDto;
+    }
 }
