@@ -40,7 +40,7 @@ public class FishingReelsController : ControllerBase
     /// <param name="createDto"> Дто создаваемого объекта катушки </param>
     [HttpPost]
     [Route("")]
-    public async Task CreateReelAsync([FromBody] FishingReelCreateDto createDto)
+    public async Task CreateReelAsync([FromQuery] FishingReelCreateDto createDto)
     {
         var reel = _fishingReelMapperService.CreationDtoToDomainModel(createDto);
         await _fishingReelService.CreateFishingReelAsync(reel);

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Models.UserProfile.FishingReel;
+namespace Models.Entities.UserProfile.FishingReel;
 
 /// <summary>
 ///     Класс описывающий тип катушек

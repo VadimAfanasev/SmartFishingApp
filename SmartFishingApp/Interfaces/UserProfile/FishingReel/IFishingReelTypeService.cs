@@ -1,8 +1,7 @@
 using Models.Dto.UserProfile.FishingReel;
+using Models.Entities.UserProfile.FishingReel;
 
 namespace Interfaces.UserProfile.FishingReel;
-
-using Models.UserProfile.FishingReel;
 
 public interface IFishingReelTypeService
 {
@@ -41,5 +40,5 @@ public interface IFishingReelTypeService
     /// </summary>
     /// <param name="id"> Id типа катушки. </param>
     /// <returns> Тип катушки с катушками этогт типа. </returns>
-    Task<List<FishingReelsDto>> GetFishingReelsAsync(string id);
+    Task<FishingReelsDto> GetFishingReelsAsync(string id);
 }

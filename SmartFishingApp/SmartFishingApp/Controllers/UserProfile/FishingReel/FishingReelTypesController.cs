@@ -94,14 +94,14 @@ public class FishingReelTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение списка рыболовных катушек.
+    ///     Получение списка рыболовных катушек по переданному типу катушек.
     /// </summary>
-    /// <returns> Список DTO всех катушек.  </returns>
+    /// <returns> Список DTO всех катушек данного типа.  </returns>
     [HttpGet]
     [Route("reels")]
-    public async Task<List<FishingReelTypeReadDto>> GetReelsAsync()
+    public async Task<FishingReelsReadDto> GetReelsAsync([FromQuery] string id)
     {
-        var fishingReelTypes = await _fishingReelTypeService.GetFishingReelTypesAsync();
-        return _fishingReelTypeMapperService.DomainModelToReadReelTypesDto(fishingReelTypes);
+        var fishingReels = await _fishingReelTypeService.GetFishingReelsAsync(id);
+        return _fishingReelTypeMapperService.DomainModelToReadReelsDto(fishingReels);
     }
 }

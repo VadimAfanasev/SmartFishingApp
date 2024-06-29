@@ -1,6 +1,6 @@
 using Database.Context;
 using Models.Dto.UserProfile.FishingReel;
-using Models.UserProfile.FishingReel;
+using Models.Entities.UserProfile.FishingReel;
 using SmartFishingApp.Dto.UserProfile.FishingReel;
 using SmartFishingApp.Services.Interfaces;
 
@@ -78,6 +78,16 @@ public class FishingReelTypeMapperService : IFishingReelTypeMapperService
             }).ToList()
         };
 
+        return readDto;
+    }
+
+    /// <inheritdoc />
+    public FishingReelsReadDto DomainModelToReadReelsDto(FishingReelsDto fishingReelsDto)
+    {
+        var readDto = new FishingReelsReadDto
+        {
+            FishingReels = fishingReelsDto
+        };
         return readDto;
     }
 }

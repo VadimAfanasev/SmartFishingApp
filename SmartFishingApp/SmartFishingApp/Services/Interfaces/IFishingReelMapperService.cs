@@ -1,4 +1,4 @@
-using Models.UserProfile.FishingReel;
+using Models.Entities.UserProfile.FishingReel;
 using SmartFishingApp.Dto.UserProfile.FishingReel;
 
 namespace SmartFishingApp.Services.Interfaces;

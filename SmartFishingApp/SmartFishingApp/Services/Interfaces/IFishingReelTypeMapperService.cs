@@ -1,5 +1,5 @@
 using Models.Dto.UserProfile.FishingReel;
-using Models.UserProfile.FishingReel;
+using Models.Entities.UserProfile.FishingReel;
 using SmartFishingApp.Dto.UserProfile.FishingReel;
 
 namespace SmartFishingApp.Services.Interfaces;
@@ -37,4 +37,11 @@ public interface IFishingReelTypeMapperService
     /// <returns> <see cref="FishingReelTypeAttachmentReadDto" />. </returns>
     FishingReelTypeAttachmentReadDto DomainModelToReadReelTypesAttachmentDto(
         FishingReelTypeAttachmentDto attachmentDto);
+    
+    /// <summary>
+    ///     Создание ДТО для отображения <see cref="FishingReelsReadDto" /> из <see cref="FishingReelsDto" />.
+    /// </summary>
+    /// <param name="fishingReelsDto"> Дто списка катушек. </param>
+    /// <returns> <see cref="FishingReelsReadDto" />. </returns>
+    FishingReelsReadDto DomainModelToReadReelsDto(FishingReelsDto fishingReelsDto);
 }

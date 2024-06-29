@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using SmartFishingApp.Models.TypeOfFishing;
 
-namespace Models.UserProfile.FishingReel;
+namespace Models.Entities.UserProfile.FishingReel;
 
 /// <summary>
 ///     Класс описывающий катушку
