@@ -34,33 +34,33 @@ public class FishingReelTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Создание сущности рыболовной катушки.
+    ///     Создание типа рыболовных катушек.
     /// </summary>
-    /// <param name="createDto"> Дто создаваемого объекта катушки </param>
+    /// <param name="createDto"> Дто создаваемого типа. </param>
     [HttpPost]
     [Route("")]
-    public async Task CreateReelAsync([FromBody] FishingReelTypeCreateDto createDto)
+    public async Task CreateReelAsync([FromQuery] FishingReelTypeCreateDto createDto)
     {
         var reel = _fishingReelTypeMapperService.CreationDtoToDomainModel(createDto);
         await _fishingReelTypeService.CreateFishingReelTypeAsync(reel);
     }
     
     /// <summary>
-    ///     Удаление рыболовной катушки.
+    ///     Удаление типа рыболовной катушки.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     [HttpDelete]
     [Route("")]
-    public async Task DeleteReelAsync([FromQuery] string id)
+    public async Task DeleteReelTypeAsync([FromQuery] string id)
     {
         await _fishingReelTypeService.DeleteFishingReelTypeAsync(id);
     }
     
     /// <summary>
-    ///     Получение одного экземпляра рыболовной катушки.
+    ///     Получение одного экземпляра типа рыболовных катушек.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    /// <returns> DTO катушки. </returns>
+    /// <returns> DTO типа катушек. </returns>
     [HttpGet]
     [Route("")]
     public async Task<FishingReelTypeReadDto> GetReelTypeAsync([FromQuery] string id)
@@ -70,9 +70,9 @@ public class FishingReelTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение списка рыболовных катушек.
+    ///     Получение списка типов рыболовных катушек.
     /// </summary>
-    /// <returns> Список DTO всех катушек.  </returns>
+    /// <returns> Список DTO всех типов катушек.  </returns>
     [HttpGet]
     [Route("reelTypes")]
     public async Task<List<FishingReelTypeReadDto>> GetReelTypesAsync()
