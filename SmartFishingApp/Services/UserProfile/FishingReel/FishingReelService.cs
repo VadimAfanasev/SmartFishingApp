@@ -5,6 +5,7 @@ namespace Services.UserProfile.FishingReel;
 
 using Interfaces.UserProfile.FishingReel;
 
+/// <inheritdoc />
 public class FishingReelService: IFishingReelService
 {
     /// <summary>
@@ -12,6 +13,10 @@ public class FishingReelService: IFishingReelService
     /// </summary>
     private readonly AppDbContext _context;
 
+    /// <summary>
+    ///     Конструктор сервиса.
+    /// </summary>
+    /// <param name="context"> Контекст БД. </param>
     public FishingReelService(AppDbContext context)
     {
         _context = context;
