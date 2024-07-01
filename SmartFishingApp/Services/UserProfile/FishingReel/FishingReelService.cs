@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Services.UserProfile.FishingReel;
 
 using Interfaces.UserProfile.FishingReel;
+using Models.Entities.UserProfile.FishingReel;
 
 /// <inheritdoc />
 public class FishingReelService: IFishingReelService
@@ -23,7 +24,7 @@ public class FishingReelService: IFishingReelService
     }
     
     /// <inheritdoc />
-    public async Task CreateFishingReelAsync(Models.Entities.UserProfile.FishingReel.FishingReel fishingReel)
+    public async Task CreateFishingReelAsync(FishingReel fishingReel)
     {
         _context.FishingReel.Add(fishingReel);
         await _context.SaveChangesAsync();
@@ -43,7 +44,7 @@ public class FishingReelService: IFishingReelService
     }
 
     /// <inheritdoc />
-    public async Task<Models.Entities.UserProfile.FishingReel.FishingReel> GetFishingReelAsync(string id)
+    public async Task<FishingReel> GetFishingReelAsync(string id)
     {
         var fishingReel = await _context.FishingReel.AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
@@ -55,7 +56,7 @@ public class FishingReelService: IFishingReelService
     }
     
     /// <inheritdoc />
-    public async Task<List<Models.Entities.UserProfile.FishingReel.FishingReel>> GetFishingReelsAsync()
+    public async Task<List<FishingReel>> GetFishingReelsAsync()
     {
         var fishingReels = await _context.FishingReel.AsNoTracking().ToListAsync();
         

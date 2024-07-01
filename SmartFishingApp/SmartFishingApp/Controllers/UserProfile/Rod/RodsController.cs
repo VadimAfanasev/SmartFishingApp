@@ -1,3 +1,4 @@
+using Interfaces.UserProfile.Rod;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SmartFishingApp.Controllers.UserProfile.Rod;

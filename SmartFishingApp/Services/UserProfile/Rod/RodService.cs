@@ -1,10 +1,12 @@
 using Database.Context;
 using Interfaces.UserProfile.Rod;
+using Microsoft.EntityFrameworkCore;
 
 namespace Services.UserProfile.Rod;
 
 using SmartFishingApp.Models.Rod;
 
+/// <inheritdoc />
 public class RodService : IRodService
 {
     /// <summary>
@@ -12,28 +14,52 @@ public class RodService : IRodService
     /// </summary>
     private readonly AppDbContext _context;
 
+    /// <summary>
+    ///     Конструктор сервиса.
+    /// </summary>
+    /// <param name="context"> Контекст БД. </param>
     public RodService(AppDbContext context)
     {
         _context = context;
     }
     
-    public Task CreateRodAsync(Rod fishingReel)
+    /// <inheritdoc />
+    public async Task CreateRodAsync(Rod rod)
     {
-        throw new NotImplementedException();
+        _context.Rod.Add(rod);
+        await _context.SaveChangesAsync();
     }
 
-    public Task DeleteRodAsync(string id)
+    /// <inheritdoc />
+    public async Task DeleteRodAsync(string id)
     {
-        throw new NotImplementedException();
+        var rod = await _context.Rod.FindAsync(Guid.Parse(id));
+        if (rod != null)
+        {
+            _context.Rod.Remove(rod);
+            await _context.SaveChangesAsync();
+        }
+        else
+            throw new KeyNotFoundException ($"Удаляемое удилище не найдено");
     }
 
-    public Task<Rod> GetFishingReelAsync(string id)
+    /// <inheritdoc />
+    public async Task<Rod> GetFishingReelAsync(string id)
     {
-        throw new NotImplementedException();
+        var rod = await _context.Rod.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
+        
+        if (rod != null)
+            return rod;
+        else
+            throw new KeyNotFoundException ($"Удилище не найдено");
     }
 
-    public Task<List<Rod>> GetFishingReelsAsync()
+    /// <inheritdoc />
+    public async Task<List<Rod>> GetFishingReelsAsync()
     {
-        throw new NotImplementedException();
+        var rod = await _context.Rod.AsNoTracking().ToListAsync();
+        
+        return rod;
     }
 }
