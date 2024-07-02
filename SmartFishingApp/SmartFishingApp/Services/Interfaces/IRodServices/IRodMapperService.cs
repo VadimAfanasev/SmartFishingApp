@@ -1,3 +1,4 @@
+using SmartFishingApp.Dto.UserProfile.Rod;
 using SmartFishingApp.Models.Rod;
 
 namespace SmartFishingApp.Services.Interfaces.IRodServices;

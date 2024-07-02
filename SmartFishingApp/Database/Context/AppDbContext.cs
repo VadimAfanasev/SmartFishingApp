@@ -123,7 +123,13 @@ public class AppDbContext: DbContext
         modelBuilder.Entity<WinterRocker>().ToTable("WinterRockers");
         modelBuilder.Entity<WinterJig>().ToTable("WinterJigs");
         modelBuilder.Entity<WinterSpoon>().ToTable("WinterSpoons");
-        modelBuilder.Entity<WinterVobler>().ToTable("WinterVobler");
+        modelBuilder.Entity<WinterVobler>().ToTable("WinterVoblers");
+        modelBuilder.Entity<FishingReel>().ToTable("FishingReels");
+        modelBuilder.Entity<FishingReelType>().ToTable("FishingReelTypes");
+        modelBuilder.Entity<Rod>().ToTable("Rods");
+        modelBuilder.Entity<RodType>().ToTable("RodTypes");
+        modelBuilder.Entity<TackleCategory>().ToTable("TackleCategories");
+        modelBuilder.Entity<TypeOfFishing>().ToTable("TypesOfFishing");
         
         base.OnModelCreating(modelBuilder);
     }

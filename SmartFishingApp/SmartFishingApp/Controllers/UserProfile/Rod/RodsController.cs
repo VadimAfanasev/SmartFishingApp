@@ -1,5 +1,6 @@
 using Interfaces.UserProfile.Rod;
 using Microsoft.AspNetCore.Mvc;
+using SmartFishingApp.Services.Interfaces.IRodServices;
 
 namespace SmartFishingApp.Controllers.UserProfile.Rod;
 
@@ -18,4 +19,6 @@ public class RodsController : ControllerBase
     ///     Сервис для работы с сущностью удилища.
     /// </summary>
     private readonly IRodService _rodService;
+    
+    // Подумать как организовать класс удилища
 }

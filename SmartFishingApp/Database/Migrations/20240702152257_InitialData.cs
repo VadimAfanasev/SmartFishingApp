@@ -11,7 +11,7 @@ namespace Database.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.InsertData(
-                table: "FishingReelType",
+                table: "FishingReelTypes",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
@@ -22,7 +22,7 @@ namespace Database.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "RodType",
+                table: "RodTypes",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
@@ -40,8 +40,8 @@ namespace Database.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "TypeOfFishing",
-                columns: new[] { "Id", "Name"},
+                table: "TypesOfFishing",
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
                     { 1, "Спинниг с берега" },
@@ -53,7 +53,7 @@ namespace Database.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "TackleCategory",
+                table: "TackleCategories",
                 columns: new[] { "Id", "Name", "TypeOfFishingId", "Commentary" },
                 values: new object[,]
                 {

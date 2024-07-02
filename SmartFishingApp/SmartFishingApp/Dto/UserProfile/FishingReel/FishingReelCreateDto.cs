@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 
 using JetBrains.Annotations;
@@ -8,11 +10,13 @@ public class FishingReelCreateDto
     /// <summary>
     ///     Название марки
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название марки катушки")]
     public string? Brand { get; set; }
     
     /// <summary>
     ///     Название модели
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название модели катушки")]
     public string? Type { get; set; }
     
     /// <summary>
@@ -33,5 +37,6 @@ public class FishingReelCreateDto
     /// <summary>
     ///     Комментарий
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

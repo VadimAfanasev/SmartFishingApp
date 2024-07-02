@@ -13,7 +13,21 @@ namespace Database.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "FishingReelType",
+                name: "FishingReelTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Commentary = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FishingReelTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RodTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -23,11 +37,11 @@ namespace Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FishingReelType", x => x.Id);
+                    table.PrimaryKey("PK_RodTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RodType",
+                name: "TypesOfFishing",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -37,81 +51,68 @@ namespace Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RodType", x => x.Id);
+                    table.PrimaryKey("PK_TypesOfFishing", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TypeOfFishing",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Commentary = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TypeOfFishing", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FishingReel",
+                name: "FishingReels",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Brand = table.Column<string>(type: "text", nullable: true),
-                    Type = table.Column<string>(type: "text", nullable: true),
+                    Brand = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     ReelTypeId = table.Column<int>(type: "integer", nullable: true),
                     TypeOfFishingId = table.Column<int>(type: "integer", nullable: true),
                     Photo = table.Column<byte[]>(type: "bytea", nullable: true),
-                    Commentary = table.Column<string>(type: "text", nullable: true)
+                    Commentary = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FishingReel", x => x.Id);
+                    table.PrimaryKey("PK_FishingReels", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FishingReel_FishingReelType_ReelTypeId",
+                        name: "FK_FishingReels_FishingReelTypes_ReelTypeId",
                         column: x => x.ReelTypeId,
-                        principalTable: "FishingReelType",
+                        principalTable: "FishingReelTypes",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_FishingReel_TypeOfFishing_TypeOfFishingId",
+                        name: "FK_FishingReels_TypesOfFishing_TypeOfFishingId",
                         column: x => x.TypeOfFishingId,
-                        principalTable: "TypeOfFishing",
+                        principalTable: "TypesOfFishing",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rod",
+                name: "Rods",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Brand = table.Column<string>(type: "text", nullable: true),
-                    Type = table.Column<string>(type: "text", nullable: true),
+                    Brand = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Test = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: true),
                     Length = table.Column<string>(type: "text", nullable: true),
                     Class = table.Column<string>(type: "text", nullable: true),
                     RodTypeId = table.Column<int>(type: "integer", nullable: true),
                     TypeOfFishingId = table.Column<int>(type: "integer", nullable: true),
                     Photo = table.Column<byte[]>(type: "bytea", nullable: true),
-                    Commentary = table.Column<string>(type: "text", nullable: true)
+                    Commentary = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rod", x => x.Id);
+                    table.PrimaryKey("PK_Rods", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Rod_RodType_RodTypeId",
+                        name: "FK_Rods_RodTypes_RodTypeId",
                         column: x => x.RodTypeId,
-                        principalTable: "RodType",
+                        principalTable: "RodTypes",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Rod_TypeOfFishing_TypeOfFishingId",
+                        name: "FK_Rods_TypesOfFishing_TypeOfFishingId",
                         column: x => x.TypeOfFishingId,
-                        principalTable: "TypeOfFishing",
+                        principalTable: "TypesOfFishing",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "TackleCategory",
+                name: "TackleCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -122,11 +123,11 @@ namespace Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TackleCategory", x => x.Id);
+                    table.PrimaryKey("PK_TackleCategories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TackleCategory_TypeOfFishing_TypeOfFishingId",
+                        name: "FK_TackleCategories_TypesOfFishing_TypeOfFishingId",
                         column: x => x.TypeOfFishingId,
-                        principalTable: "TypeOfFishing",
+                        principalTable: "TypesOfFishing",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -147,9 +148,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_FeederAlives", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeederAlives_TackleCategory_TackleCategoryId",
+                        name: "FK_FeederAlives_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -173,9 +174,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_FeederBoils", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeederBoils_TackleCategory_TackleCategoryId",
+                        name: "FK_FeederBoils_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -196,9 +197,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_FeederCorns", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeederCorns_TackleCategory_TackleCategoryId",
+                        name: "FK_FeederCorns_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -218,9 +219,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_FloatAlives", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FloatAlives_TackleCategory_TackleCategoryId",
+                        name: "FK_FloatAlives_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -240,9 +241,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_FloatCorns", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FloatCorns_TackleCategory_TackleCategoryId",
+                        name: "FK_FloatCorns_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -266,9 +267,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_SpinningJigs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SpinningJigs_TackleCategory_TackleCategoryId",
+                        name: "FK_SpinningJigs_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -292,9 +293,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_SpinningSpoons", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SpinningSpoons_TackleCategory_TackleCategoryId",
+                        name: "FK_SpinningSpoons_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -320,9 +321,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_SpinningVoblers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SpinningVoblers_TackleCategory_TackleCategoryId",
+                        name: "FK_SpinningVoblers_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -346,9 +347,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_WinterJigs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WinterJigs_TackleCategory_TackleCategoryId",
+                        name: "FK_WinterJigs_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -372,9 +373,9 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_WinterRockers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WinterRockers_TackleCategory_TackleCategoryId",
+                        name: "FK_WinterRockers_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -398,15 +399,15 @@ namespace Database.Migrations
                 {
                     table.PrimaryKey("PK_WinterSpoons", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WinterSpoons_TackleCategory_TackleCategoryId",
+                        name: "FK_WinterSpoons_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "WinterVobler",
+                name: "WinterVoblers",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -422,11 +423,11 @@ namespace Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WinterVobler", x => x.Id);
+                    table.PrimaryKey("PK_WinterVoblers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WinterVobler_TackleCategory_TackleCategoryId",
+                        name: "FK_WinterVoblers_TackleCategories_TackleCategoryId",
                         column: x => x.TackleCategoryId,
-                        principalTable: "TackleCategory",
+                        principalTable: "TackleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -447,13 +448,13 @@ namespace Database.Migrations
                 column: "TackleCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FishingReel_ReelTypeId",
-                table: "FishingReel",
+                name: "IX_FishingReels_ReelTypeId",
+                table: "FishingReels",
                 column: "ReelTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FishingReel_TypeOfFishingId",
-                table: "FishingReel",
+                name: "IX_FishingReels_TypeOfFishingId",
+                table: "FishingReels",
                 column: "TypeOfFishingId");
 
             migrationBuilder.CreateIndex(
@@ -467,13 +468,13 @@ namespace Database.Migrations
                 column: "TackleCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rod_RodTypeId",
-                table: "Rod",
+                name: "IX_Rods_RodTypeId",
+                table: "Rods",
                 column: "RodTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rod_TypeOfFishingId",
-                table: "Rod",
+                name: "IX_Rods_TypeOfFishingId",
+                table: "Rods",
                 column: "TypeOfFishingId");
 
             migrationBuilder.CreateIndex(
@@ -492,8 +493,8 @@ namespace Database.Migrations
                 column: "TackleCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TackleCategory_TypeOfFishingId",
-                table: "TackleCategory",
+                name: "IX_TackleCategories_TypeOfFishingId",
+                table: "TackleCategories",
                 column: "TypeOfFishingId");
 
             migrationBuilder.CreateIndex(
@@ -512,8 +513,8 @@ namespace Database.Migrations
                 column: "TackleCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WinterVobler_TackleCategoryId",
-                table: "WinterVobler",
+                name: "IX_WinterVoblers_TackleCategoryId",
+                table: "WinterVoblers",
                 column: "TackleCategoryId");
         }
 
@@ -530,7 +531,7 @@ namespace Database.Migrations
                 name: "FeederCorns");
 
             migrationBuilder.DropTable(
-                name: "FishingReel");
+                name: "FishingReels");
 
             migrationBuilder.DropTable(
                 name: "FloatAlives");
@@ -539,7 +540,7 @@ namespace Database.Migrations
                 name: "FloatCorns");
 
             migrationBuilder.DropTable(
-                name: "Rod");
+                name: "Rods");
 
             migrationBuilder.DropTable(
                 name: "SpinningJigs");
@@ -560,19 +561,19 @@ namespace Database.Migrations
                 name: "WinterSpoons");
 
             migrationBuilder.DropTable(
-                name: "WinterVobler");
+                name: "WinterVoblers");
 
             migrationBuilder.DropTable(
-                name: "FishingReelType");
+                name: "FishingReelTypes");
 
             migrationBuilder.DropTable(
-                name: "RodType");
+                name: "RodTypes");
 
             migrationBuilder.DropTable(
-                name: "TackleCategory");
+                name: "TackleCategories");
 
             migrationBuilder.DropTable(
-                name: "TypeOfFishing");
+                name: "TypesOfFishing");
         }
     }
 }

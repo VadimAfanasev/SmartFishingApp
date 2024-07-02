@@ -22,17 +22,19 @@ namespace Database.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Models.UserProfile.FishingReel.FishingReel", b =>
+            modelBuilder.Entity("Models.Entities.UserProfile.FishingReel.FishingReel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Brand")
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Commentary")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<byte[]>("Photo")
                         .HasColumnType("bytea");
@@ -41,7 +43,8 @@ namespace Database.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Type")
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int?>("TypeOfFishingId")
                         .HasColumnType("integer");
@@ -52,10 +55,10 @@ namespace Database.Migrations
 
                     b.HasIndex("TypeOfFishingId");
 
-                    b.ToTable("FishingReel");
+                    b.ToTable("FishingReels", (string)null);
                 });
 
-            modelBuilder.Entity("Models.UserProfile.FishingReel.FishingReelType", b =>
+            modelBuilder.Entity("Models.Entities.UserProfile.FishingReel.FishingReelType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,15 +67,17 @@ namespace Database.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Commentary")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FishingReelType");
+                    b.ToTable("FishingReelTypes", (string)null);
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Rod.Rod", b =>
@@ -82,13 +87,15 @@ namespace Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Brand")
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Class")
                         .HasColumnType("text");
 
                     b.Property<string>("Commentary")
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Length")
                         .HasColumnType("text");
@@ -99,8 +106,13 @@ namespace Database.Migrations
                     b.Property<int?>("RodTypeId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Test")
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
+
                     b.Property<string>("Type")
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int?>("TypeOfFishingId")
                         .HasColumnType("integer");
@@ -111,7 +123,7 @@ namespace Database.Migrations
 
                     b.HasIndex("TypeOfFishingId");
 
-                    b.ToTable("Rod");
+                    b.ToTable("Rods", (string)null);
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Rod.RodType", b =>
@@ -131,7 +143,7 @@ namespace Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RodType");
+                    b.ToTable("RodTypes", (string)null);
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleCategory", b =>
@@ -155,7 +167,7 @@ namespace Database.Migrations
 
                     b.HasIndex("TypeOfFishingId");
 
-                    b.ToTable("TackleCategory");
+                    b.ToTable("TackleCategories", (string)null);
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.Tackle.TackleTypes.Feeder.FeederAlive", b =>
@@ -599,7 +611,7 @@ namespace Database.Migrations
 
                     b.HasIndex("TackleCategoryId");
 
-                    b.ToTable("WinterVobler", (string)null);
+                    b.ToTable("WinterVoblers", (string)null);
                 });
 
             modelBuilder.Entity("SmartFishingApp.Models.TypeOfFishing.TypeOfFishing", b =>
@@ -619,12 +631,12 @@ namespace Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeOfFishing");
+                    b.ToTable("TypesOfFishing", (string)null);
                 });
 
-            modelBuilder.Entity("Models.UserProfile.FishingReel.FishingReel", b =>
+            modelBuilder.Entity("Models.Entities.UserProfile.FishingReel.FishingReel", b =>
                 {
-                    b.HasOne("Models.UserProfile.FishingReel.FishingReelType", "ReelType")
+                    b.HasOne("Models.Entities.UserProfile.FishingReel.FishingReelType", "ReelType")
                         .WithMany()
                         .HasForeignKey("ReelTypeId");
 

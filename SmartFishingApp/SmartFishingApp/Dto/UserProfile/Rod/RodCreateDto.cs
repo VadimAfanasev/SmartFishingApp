@@ -1,19 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using JetBrains.Annotations;
 
-namespace SmartFishingApp.Models.Rod;
+namespace SmartFishingApp.Dto.UserProfile.Rod;
 
-using TypeOfFishing;
-
-/// <summary>
-///     Класс оприсывающий удилище
-/// </summary>
-public class Rod
+[PublicAPI]
+public class RodCreateDto
 {
-    /// <summary>
-    ///     ID сущности
-    /// </summary>
-    public Guid Id { get; set; }
-    
     /// <summary>
     ///     Название марки
     /// </summary>
@@ -45,12 +37,12 @@ public class Rod
     /// <summary>
     ///     Тип удилища
     /// </summary>
-    public RodType? RodType { get; set; }
+    public string? RodType { get; set; }
     
     /// <summary>
     ///     Вид ловли
     /// </summary>
-    public TypeOfFishing? TypeOfFishing { get; set; }
+    public string? TypeOfFishing { get; set; }
     
     /// <summary>
     ///     Фото
