@@ -1,4 +1,5 @@
 using Database.Context;
+using Models.Dto.UserProfile.Rod;
 using SmartFishingApp.Dto.UserProfile.Rod;
 using SmartFishingApp.Models.Rod;
 using SmartFishingApp.Services.Interfaces.IRodServices;
@@ -29,6 +30,9 @@ public class RodMapperService : IRodMapperService
         {
             Brand = createDto.Brand,
             Type = createDto.Type,
+            Test = createDto.Test,
+            Length = createDto.Length,
+            Class = Enum.Parse(typeof(RodClassEnum), createDto.Class, true).ToString(),
             RodType = _context.RodType.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.RodType)),
             TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == Convert.ToInt32(createDto.TypeOfFishing)),
             Photo = createDto.Photo,
@@ -45,6 +49,9 @@ public class RodMapperService : IRodMapperService
         {
             Brand = rod.Brand,
             Type  = rod.Type,
+            Test = rod.Test,
+            Length = rod.Length,
+            Class = rod.Class,
             RodType  = rod.RodType?.Name,    
             TypeOfFishing =  rod.TypeOfFishing?.Name,
             Photo  = rod.Photo,
@@ -61,6 +68,9 @@ public class RodMapperService : IRodMapperService
         {
             Brand = rod.Brand,
             Type = rod.Type,
+            Test = rod.Test,
+            Length = rod.Length,
+            Class = rod.Class,
             RodType = rod.RodType?.Name,
             TypeOfFishing = rod.TypeOfFishing?.Name,
             Photo = rod.Photo,

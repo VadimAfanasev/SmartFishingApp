@@ -20,5 +20,5 @@ public class RodsController : ControllerBase
     /// </summary>
     private readonly IRodService _rodService;
     
-    // Подумать как организовать класс удилища
+    // Протестировать эндпоинты
 }
