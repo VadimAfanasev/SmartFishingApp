@@ -8,7 +8,7 @@ namespace SmartFishingApp.Controllers.UserProfile.FishingReel;
 /// <summary>
 ///     Контроллер для работы с рыболовными катушками.
 /// </summary>
-[Route("api/reelTypes")]
+[Route("api/reel-types")]
 public class FishingReelTypesController : ControllerBase
 {
     /// <summary>

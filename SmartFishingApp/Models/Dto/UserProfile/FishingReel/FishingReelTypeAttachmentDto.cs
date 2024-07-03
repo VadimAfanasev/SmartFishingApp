@@ -1,5 +1,7 @@
 namespace Models.Dto.UserProfile.FishingReel;
 
+using Entities.UserProfile.FishingReel;
+
 /// <summary>
 ///     Dto для получения из контекста типа катушки с катушками этого типа.
 /// </summary>
@@ -18,5 +20,5 @@ public class FishingReelTypeAttachmentDto
     /// <summary>
     ///     Катушки данного типа
     /// </summary>
-    public List<Entities.UserProfile.FishingReel.FishingReel> FishingReels { get; set; }
+    public List<FishingReel> FishingReels { get; set; }
 }

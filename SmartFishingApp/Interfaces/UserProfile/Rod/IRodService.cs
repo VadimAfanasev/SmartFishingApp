@@ -1,5 +1,6 @@
 namespace Interfaces.UserProfile.Rod;
 using SmartFishingApp.Models.Rod;
+
 /// <summary>
 ///     Сервис для работы с рыболовными удилищами.
 /// </summary>
