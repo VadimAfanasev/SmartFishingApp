@@ -44,7 +44,7 @@ public class RodService : IRodService
     }
 
     /// <inheritdoc />
-    public async Task<Rod> GetFishingReelAsync(string id)
+    public async Task<Rod> GetRodAsync(string id)
     {
         var rod = await _context.Rod.AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
@@ -56,7 +56,7 @@ public class RodService : IRodService
     }
 
     /// <inheritdoc />
-    public async Task<List<Rod>> GetFishingReelsAsync()
+    public async Task<List<Rod>> GetRodsAsync()
     {
         var rod = await _context.Rod.AsNoTracking().ToListAsync();
         

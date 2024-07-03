@@ -38,7 +38,6 @@ public class FishingReelTypesController : ControllerBase
     /// </summary>
     /// <param name="createDto"> Дто создаваемого типа. </param>
     [HttpPost]
-    [Route("")]
     public async Task CreateReelAsync([FromQuery] FishingReelTypeCreateDto createDto)
     {
         var reel = _fishingReelTypeMapperService.CreationDtoToDomainModel(createDto);
@@ -50,7 +49,6 @@ public class FishingReelTypesController : ControllerBase
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     [HttpDelete]
-    [Route("")]
     public async Task DeleteReelTypeAsync([FromQuery] string id)
     {
         await _fishingReelTypeService.DeleteFishingReelTypeAsync(id);
@@ -62,7 +60,6 @@ public class FishingReelTypesController : ControllerBase
     /// <param name="id"> Id сущности. </param>
     /// <returns> DTO типа катушек. </returns>
     [HttpGet]
-    [Route("")]
     public async Task<FishingReelTypeReadDto> GetReelTypeAsync([FromQuery] string id)
     {
         var fishingReel = await _fishingReelTypeService.GetFishingReelTypeAsync(id);

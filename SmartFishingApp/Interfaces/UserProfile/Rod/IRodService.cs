@@ -21,10 +21,10 @@ public interface IRodService
     ///     Получение удилища по Id.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    Task<Rod> GetFishingReelAsync(string id);
+    Task<Rod> GetRodAsync(string id);
     
     /// <summary>
     ///     Получение списка всех удилищ.
     /// </summary>
-    Task<List<Rod>> GetFishingReelsAsync();
+    Task<List<Rod>> GetRodsAsync();
 }
