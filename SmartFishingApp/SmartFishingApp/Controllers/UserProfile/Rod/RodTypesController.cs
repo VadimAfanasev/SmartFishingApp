@@ -1,5 +1,7 @@
 using Interfaces.UserProfile.Rod;
 using Microsoft.AspNetCore.Mvc;
+using SmartFishingApp.Dto.UserProfile.Rod;
+using SmartFishingApp.Services.Interfaces.IRodServices;
 
 namespace SmartFishingApp.Controllers.UserProfile.Rod;
 

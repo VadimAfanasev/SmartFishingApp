@@ -47,6 +47,7 @@ static void RegisterMappingServices(IServiceCollection services)
     services.AddScoped<IFishingReelMapperService, FishingReelMapperService>();
     services.AddScoped<IFishingReelTypeMapperService, FishingReelTypeMapperService>();
     services.AddScoped<IRodMapperService, RodMapperService>();
+    services.AddScoped<IRodTypeMapperService, RodTypeMapperService>();
 }
 
 static void RegisterSmartFishingAppServices(IServiceCollection services)
@@ -54,4 +55,5 @@ static void RegisterSmartFishingAppServices(IServiceCollection services)
     services.AddScoped<IFishingReelService, FishingReelService>();
     services.AddScoped<IFishingReelTypeService, FishingReelTypeService>();
     services.AddScoped<IRodService, RodService>();
+    services.AddScoped<IRodTypeService, RodTypeService>();
 }
