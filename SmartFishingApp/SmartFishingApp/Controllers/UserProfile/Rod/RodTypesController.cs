@@ -14,7 +14,7 @@ public class RodTypesController : ControllerBase
     private readonly IRodTypeMapperService _rodTypeMapperService;
     
     /// <summary>
-    ///     Сервис для работы с сущностью катушки.
+    ///     Сервис для работы с сущностью удилища.
     /// </summary>
     private readonly IRodTypeService _rodTypeService;
     
@@ -31,7 +31,7 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Создание типа рыболовных катушек.
+    ///     Создание типа рыболовных удилищ.
     /// </summary>
     /// <param name="createDto"> Дто создаваемого типа. </param>
     [HttpPost]
@@ -42,7 +42,7 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Удаление типа рыболовной катушки.
+    ///     Удаление типа рыболовного удилища.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     [HttpDelete]
@@ -52,10 +52,10 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение одного экземпляра типа рыболовных катушек.
+    ///     Получение одного экземпляра типа рыболовных удилищ.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    /// <returns> DTO типа катушек. </returns>
+    /// <returns> DTO типа удилищ. </returns>
     [HttpGet]
     public async Task<RodTypeReadDto> GetReelTypeAsync([FromQuery] string id)
     {
@@ -64,11 +64,11 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение списка типов рыболовных катушек.
+    ///     Получение списка типов рыболовных удилищ.
     /// </summary>
-    /// <returns> Список DTO всех типов катушек.  </returns>
+    /// <returns> Список DTO всех типов удилищ.  </returns>
     [HttpGet]
-    [Route("reelTypes")]
+    [Route("rodTypes")]
     public async Task<List<RodTypeReadDto>> GetReelTypesAsync()
     {
         var rodTypes = await _rodTypeService.GetRodTypesAsync();
@@ -76,11 +76,11 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение типа катушки c катушками этого типа.
+    ///     Получение типа удилища c удилищами этого типа.
     /// </summary>
-    /// <returns> DTO катушки c катушками этого типа.  </returns>
+    /// <returns> DTO удилища c удилищами этого типа.  </returns>
     [HttpGet]
-    [Route("reelTypeAttachment")]
+    [Route("rodTypeAttachment")]
     public async Task<RodTypeAttachmentReadDto> GetReelTypesAttachmentAsync([FromQuery] string id)
     {
         var rodTypesAttachment = await _rodTypeService.GetRodTypesAttachmentAsync(id);
@@ -88,11 +88,11 @@ public class RodTypesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение списка рыболовных катушек по переданному типу катушек.
+    ///     Получение списка рыболовных удилищ по переданному типу удилища.
     /// </summary>
-    /// <returns> Список DTO всех катушек данного типа.  </returns>
+    /// <returns> Список DTO всех удилищ данного типа.  </returns>
     [HttpGet]
-    [Route("reels")]
+    [Route("rods")]
     public async Task<RodsReadDto> GetReelsAsync([FromQuery] string id)
     {
         var rods = await _rodTypeService.GetRodsAsync(id);
