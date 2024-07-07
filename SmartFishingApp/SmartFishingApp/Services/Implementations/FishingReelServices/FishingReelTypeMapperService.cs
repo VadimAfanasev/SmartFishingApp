@@ -42,6 +42,7 @@ public class FishingReelTypeMapperService : IFishingReelTypeMapperService
     {
         var fishingReelTypeOut = new FishingReelTypeReadDto
         {
+            Id = fishingReel.Id.ToString(),
             Name = fishingReel.Name,
             Commentary =  fishingReel.Commentary
         };
@@ -54,6 +55,7 @@ public class FishingReelTypeMapperService : IFishingReelTypeMapperService
     {
         return fishingReelTypes.Select(fishingReel => new FishingReelTypeReadDto
         {
+            Id = fishingReel.Id.ToString(),
             Name = fishingReel.Name,
             Commentary =  fishingReel.Commentary
         }).ToList();
@@ -69,6 +71,7 @@ public class FishingReelTypeMapperService : IFishingReelTypeMapperService
             Commentary = attachmentDto.Commentary,
             FishingReels = attachmentDto.FishingReels.Select(c => new FishingReelReadDto
             {
+                Id = c.Id.ToString(),
                 Brand = c.Brand,
                 Type = c.Type,
                 ReelType = c.ReelType.Name,
@@ -89,5 +92,18 @@ public class FishingReelTypeMapperService : IFishingReelTypeMapperService
             FishingReels = fishingReelsDto
         };
         return readDto;
+    }
+
+    /// <inheritdoc />
+    public FishingReelType UpdateDtoToDomainModel(FishingReelTypeUpdateDto updateDto)
+    {
+        var fishingReelType = new FishingReelType
+        {
+            Id = int.Parse(updateDto.Id),
+            Name = updateDto.Name,
+            Commentary =  updateDto.Commentary
+        };
+
+        return fishingReelType;
     }
 }

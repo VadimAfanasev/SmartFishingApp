@@ -85,7 +85,4 @@ public class FishingReelsController : ControllerBase
         var updateReel = _fishingReelMapperService.UpdateDtoToDomainModel(updateDto);
         await _fishingReelService.UpdateFishingReelAsync(updateReel);
     }
-    
-    // Изменить Get запрос, добавить Id в получаемое ДТО 
-    // Решить проблему с перезаписью полей при обновлении катушки.
 }

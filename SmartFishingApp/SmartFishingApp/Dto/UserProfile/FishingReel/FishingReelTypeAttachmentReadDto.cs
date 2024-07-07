@@ -6,6 +6,11 @@ namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 public class FishingReelTypeAttachmentReadDto
 {
     /// <summary>
+    ///     ID сущности
+    /// </summary>
+    public string Id { get; set; }
+    
+    /// <summary>
     ///     Название типа катушек
     /// </summary>
     public string Name { get; set; }

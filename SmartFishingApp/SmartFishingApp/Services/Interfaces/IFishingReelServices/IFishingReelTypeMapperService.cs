@@ -44,4 +44,11 @@ public interface IFishingReelTypeMapperService
     /// <param name="fishingReelsDto"> Дто списка катушек. </param>
     /// <returns> <see cref="FishingReelsReadDto" />. </returns>
     FishingReelsReadDto DomainModelToReadReelsDto(FishingReelsDto fishingReelsDto);
+    
+    /// <summary>
+    ///     Создание доменной модели <see cref="FishingReelType" /> из <see cref="FishingReelTypeUpdateDto" />.
+    /// </summary>
+    /// <param name="updateDto"> Дто изменяемого типа катушки </param>
+    /// <returns> <see cref="FishingReelType" />. </returns>
+    FishingReelType UpdateDtoToDomainModel(FishingReelTypeUpdateDto updateDto);
 }

@@ -38,7 +38,7 @@ public class RodsController : ControllerBase
     /// </summary>
     /// <param name="createDto"> Дто создаваемого объекта удилища </param>
     [HttpPost]
-    public async Task CreateReelAsync([FromQuery] RodCreateDto createDto)
+    public async Task CreateRodAsync([FromQuery] RodCreateDto createDto)
     {
         var reel = _rodMapperService.CreationDtoToDomainModel(createDto);
         await _rodService.CreateRodAsync(reel);
@@ -49,7 +49,7 @@ public class RodsController : ControllerBase
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     [HttpDelete]
-    public async Task DeleteReelAsync([FromQuery] string id)
+    public async Task DeleteRodAsync([FromQuery] string id)
     {
         await _rodService.DeleteRodAsync(id);
     }
@@ -60,7 +60,7 @@ public class RodsController : ControllerBase
     /// <param name="id"> Id сущности. </param>
     /// <returns> DTO удилища. </returns>
     [HttpGet]
-    public async Task<RodReadDto> GetReelAsync([FromQuery] string id)
+    public async Task<RodReadDto> GetRodAsync([FromQuery] string id)
     {
         var rod = await _rodService.GetRodAsync(id);
         return _rodMapperService.DomainModelToReadDto(rod);
@@ -72,9 +72,18 @@ public class RodsController : ControllerBase
     /// <returns> Список DTO всех удилищ.  </returns>
     [HttpGet]
     [Route("rods")]
-    public async Task<List<RodReadDto>> GetReelsAsync()
+    public async Task<List<RodReadDto>> GetRodsAsync()
     {
         var rods = await _rodService.GetRodsAsync();
         return _rodMapperService.DomainModelToReadRodsDto(rods);
     }
+    
+    [HttpPut]
+    public async Task UpdateRodAsync([FromQuery] RodUpdateDto updateDto)
+    {
+        var updateRod = _rodMapperService.UpdateDtoToDomainModel(updateDto);
+        await _rodService.UpdateRodAsync(updateRod);
+    }
+    
+    // Изменить Get запрос, добавить Id в получаемое ДТО 
 }

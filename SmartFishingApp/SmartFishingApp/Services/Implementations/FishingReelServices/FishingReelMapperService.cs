@@ -45,6 +45,7 @@ public class FishingReelMapperService : IFishingReelMapperService
     {
         var fishingReelOut = new FishingReelReadDto
         {
+            Id = fishingReel.Id.ToString(),
             Brand = fishingReel.Brand,
             Type  = fishingReel.Type,
             ReelType  = fishingReel.ReelType?.Name,    
@@ -61,6 +62,7 @@ public class FishingReelMapperService : IFishingReelMapperService
     {
         return fishingReels.Select(fishingReel => new FishingReelReadDto
         {
+            Id = fishingReel.Id.ToString(),
             Brand = fishingReel.Brand,
             Type = fishingReel.Type,
             ReelType = fishingReel.ReelType?.Name,

@@ -101,4 +101,13 @@ public class FishingReelTypesController : ControllerBase
         var fishingReels = await _fishingReelTypeService.GetFishingReelsAsync(id);
         return _fishingReelTypeMapperService.DomainModelToReadReelsDto(fishingReels);
     }
+    
+    [HttpPut]
+    public async Task UpdateReelTypeAsync([FromQuery] FishingReelTypeUpdateDto updateDto)
+    {
+        var updateReelType = _fishingReelTypeMapperService.UpdateDtoToDomainModel(updateDto);
+        await _fishingReelTypeService.UpdateFishingReelTypeAsync(updateReelType);
+    }
+    
+    // Изменить Get запрос, добавить Id в получаемое ДТО 
 }

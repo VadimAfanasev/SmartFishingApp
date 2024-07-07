@@ -1,12 +1,11 @@
-using JetBrains.Annotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 
 /// <summary>
-///     Dto для отображения типа катушек.
+///     Dto для изменения типа катушек.
 /// </summary>
-[PublicAPI]
-public class FishingReelTypeReadDto
+public class FishingReelTypeUpdateDto
 {
     /// <summary>
     ///     ID сущности
@@ -16,10 +15,12 @@ public class FishingReelTypeReadDto
     /// <summary>
     ///     Название типа катушек
     /// </summary>
-    public string Name { get; set; }
+    [MaxLength(50, ErrorMessage = "Слишком длинное название типа катушки")]
+    public string? Name { get; set; }
     
     /// <summary>
     ///     Комментарий
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

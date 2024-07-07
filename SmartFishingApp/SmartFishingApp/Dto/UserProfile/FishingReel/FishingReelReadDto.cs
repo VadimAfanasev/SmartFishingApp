@@ -9,6 +9,11 @@ namespace SmartFishingApp.Dto.UserProfile.FishingReel;
 public class FishingReelReadDto
 {
     /// <summary>
+    ///     ID сущности
+    /// </summary>
+    public string Id { get; set; }
+    
+    /// <summary>
     ///     Название марки
     /// </summary>
     public string? Brand { get; set; }

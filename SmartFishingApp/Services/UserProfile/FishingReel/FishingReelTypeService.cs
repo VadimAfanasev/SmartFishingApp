@@ -82,6 +82,7 @@ public class FishingReelTypeService: IFishingReelTypeService
         // возможно стоит получать только список катушек типа переданного по Id
     }
 
+    /// <inheritdoc />
     public async Task<FishingReelsDto> GetFishingReelsAsync(string id)
     {
         var fishingReels = await _context.FishingReel
@@ -93,5 +94,12 @@ public class FishingReelTypeService: IFishingReelTypeService
             FishingReels = fishingReels
         };
         return fishingReelsDto;
+    }
+
+    /// <inheritdoc />
+    public async Task UpdateFishingReelTypeAsync(FishingReelType fishingReelType)
+    {
+        _context.FishingReelType.Update(fishingReelType);
+        await _context.SaveChangesAsync();
     }
 }
