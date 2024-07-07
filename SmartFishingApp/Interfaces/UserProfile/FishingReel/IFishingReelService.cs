@@ -29,4 +29,10 @@ public interface IFishingReelService
     ///     Получение списка всех катушек.
     /// </summary>
     Task<List<FishingReel>> GetFishingReelsAsync();
+
+    /// <summary>
+    ///     Изменение катушки.
+    /// </summary>
+    /// <param name="fishingReel"> Сущность катушки с новыми данными. </param>
+    Task UpdateFishingReelAsync(FishingReel fishingReel);
 }

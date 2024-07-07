@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Models.Entities.UserProfile.FishingReel;
+using Models.Entities.UserProfile.Tackle;
 using SmartFishingApp.Models.Rod;
 using SmartFishingApp.Models.Tackle;
 using SmartFishingApp.Models.Tackle.TackleTypes.Feeder;

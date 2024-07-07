@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Models.Entities.UserProfile.Tackle;
 
 namespace SmartFishingApp.Models.TypeOfFishing;
 

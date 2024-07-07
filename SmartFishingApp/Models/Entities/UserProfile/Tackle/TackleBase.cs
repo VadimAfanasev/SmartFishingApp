@@ -1,8 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SmartFishingApp.Models.Tackle;
-
-using TypeOfFishing;
+namespace Models.Entities.UserProfile.Tackle;
 
 /// <summary>
 ///     Базовый класс описывающий приманки

@@ -62,4 +62,11 @@ public class FishingReelService: IFishingReelService
         
         return fishingReels;
     }
+    
+    /// <inheritdoc />
+    public async Task UpdateFishingReelAsync(FishingReel fishingReel)
+    {
+        _context.FishingReel.Update(fishingReel);
+        await _context.SaveChangesAsync();
+    }
 }

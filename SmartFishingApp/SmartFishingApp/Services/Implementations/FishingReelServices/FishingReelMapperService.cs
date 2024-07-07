@@ -69,4 +69,21 @@ public class FishingReelMapperService : IFishingReelMapperService
             Commentary = fishingReel.Commentary
         }).ToList();
     }
+
+    /// <inheritdoc />
+    public FishingReel UpdateDtoToDomainModel(FishingReelUpdateDto updateDto)
+    {
+        var fishingReel = new FishingReel
+        {
+            Id = Guid.Parse(updateDto.Id),
+            Brand = updateDto.Brand,
+            Type = updateDto.Type,
+            ReelType = _context.FishingReelType.FirstOrDefault(c=>c.Id == Convert.ToInt32(updateDto.ReelType)),
+            TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == Convert.ToInt32(updateDto.TypeOfFishing)),
+            Photo = updateDto.Photo,
+            Commentary =  updateDto.Commentary
+        };
+
+        return fishingReel;
+    }
 }
