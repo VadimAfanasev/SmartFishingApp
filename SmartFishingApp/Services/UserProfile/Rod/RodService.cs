@@ -62,4 +62,11 @@ public class RodService : IRodService
         
         return rod;
     }
+
+    /// <inheritdoc />
+    public async Task UpdateRodAsync(Rod rod)
+    {
+        _context.Rod.Update(rod);
+        await _context.SaveChangesAsync();
+    }
 }

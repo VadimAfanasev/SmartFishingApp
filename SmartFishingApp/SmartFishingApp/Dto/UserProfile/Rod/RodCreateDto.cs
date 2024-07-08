@@ -3,6 +3,9 @@ using JetBrains.Annotations;
 
 namespace SmartFishingApp.Dto.UserProfile.Rod;
 
+/// <summary>
+///     Dto для создания удилища.
+/// </summary>
 [PublicAPI]
 public class RodCreateDto
 {

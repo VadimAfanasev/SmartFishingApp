@@ -1,9 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using JetBrains.Annotations;
+
 namespace SmartFishingApp.Dto.UserProfile.Rod;
 
 /// <summary>
-///     Dto для отображения сущности удилища. 
+///     Dto для редактирования удилища.
 /// </summary>
-public class RodReadDto
+[PublicAPI]
+public class RodUpdateDto
 {
     /// <summary>
     ///     ID сущности
@@ -13,16 +17,19 @@ public class RodReadDto
     /// <summary>
     ///     Название марки
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название марки удилища")]
     public string? Brand { get; set; }
     
     /// <summary>
     ///     Название модели
     /// </summary>
+    [MaxLength(50, ErrorMessage = "Слишком длинное название модели удилища")]
     public string? Type { get; set; }
     
     /// <summary>
     ///     Тест удилища
     /// </summary>
+    [MaxLength(15, ErrorMessage = "Введен некорректный тест удилища")]
     public string? Test { get; set; }
     
     /// <summary>
@@ -53,5 +60,6 @@ public class RodReadDto
     /// <summary>
     ///     Комментарий
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

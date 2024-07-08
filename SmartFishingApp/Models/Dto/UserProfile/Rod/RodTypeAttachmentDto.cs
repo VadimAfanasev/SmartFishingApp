@@ -8,6 +8,11 @@ using SmartFishingApp.Models.Rod;
 public class RodTypeAttachmentDto
 {
     /// <summary>
+    ///     ID сущности
+    /// </summary>
+    public string Id { get; set; }
+    
+    /// <summary>
     ///     Название типа удилищ
     /// </summary>
     public string Name { get; set; }

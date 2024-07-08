@@ -11,8 +11,8 @@ public interface IRodTypeService
     /// <summary>
     ///     Создание типа удилища.
     /// </summary>
-    /// <param name="rod"> Катушка. </param>
-    Task CreateRodTypeAsync(RodType rod);
+    /// <param name="rodType"> Тип удилища. </param>
+    Task CreateRodTypeAsync(RodType rodType);
 
     /// <summary>
     ///     Удаление типа удилища.
@@ -34,14 +34,20 @@ public interface IRodTypeService
     /// <summary>
     ///     Получение типа удилища с удилищами этого типа.
     /// </summary>
-    /// <param name="id"> Id типа катушки. </param>
-    /// <returns> Тип катушки с катушками этогт типа. </returns>
+    /// <param name="id"> Id типа удилища. </param>
+    /// <returns> Тип типа удилища с удилищами этого типа. </returns>
     Task<RodTypeAttachmentDto> GetRodTypesAttachmentAsync(string id);
     
     /// <summary>
     ///     Получение списка удилищ по переданному типу удилища.
     /// </summary>
-    /// <param name="id"> Id типа катушки. </param>
-    /// <returns> Тип катушки с катушками этогт типа. </returns>
+    /// <param name="id"> Id типа удилища. </param>
+    /// <returns> Тип удилища с удилищами этогт типа. </returns>
     Task<RodsDto> GetRodsAsync(string id);
+    
+    /// <summary>
+    ///     Изменение типа удилища.
+    /// </summary>
+    /// <param name="rodType"> Сущность типа удилища с новыми данными. </param>
+    Task UpdateRodTypeAsync(RodType rodType);
 }

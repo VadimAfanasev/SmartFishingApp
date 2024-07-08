@@ -8,6 +8,11 @@ using Entities.UserProfile.FishingReel;
 public class FishingReelTypeAttachmentDto
 {
     /// <summary>
+    ///     ID сущности
+    /// </summary>
+    public string Id { get; set; }
+    
+    /// <summary>
     ///     Название типа катушек
     /// </summary>
     public string Name { get; set; }

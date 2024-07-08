@@ -6,6 +6,11 @@ namespace SmartFishingApp.Dto.UserProfile.Rod;
 public class RodTypeAttachmentReadDto
 {
     /// <summary>
+    ///     ID сущности
+    /// </summary>
+    public string Id { get; set; }
+    
+    /// <summary>
     ///     Название типа катушек
     /// </summary>
     public string Name { get; set; }

@@ -47,6 +47,7 @@ public class RodMapperService : IRodMapperService
     {
         var rodOut = new RodReadDto
         {
+            Id = rod.Id.ToString(),
             Brand = rod.Brand,
             Type  = rod.Type,
             Test = rod.Test,
@@ -66,6 +67,7 @@ public class RodMapperService : IRodMapperService
     {
         return rods.Select(rod => new RodReadDto
         {
+            Id = rod.Id.ToString(),
             Brand = rod.Brand,
             Type = rod.Type,
             Test = rod.Test,
@@ -76,5 +78,25 @@ public class RodMapperService : IRodMapperService
             Photo = rod.Photo,
             Commentary = rod.Commentary
         }).ToList();
+    }
+
+    /// <inheritdoc />
+    public Rod UpdateDtoToDomainModel(RodUpdateDto updateDto)
+    {
+        var rod = new Rod
+        {
+            Id = Guid.Parse(updateDto.Id),
+            Brand = updateDto.Brand,
+            Type = updateDto.Type,
+            Test = updateDto.Test,
+            Length = updateDto.Length,
+            Class = Enum.Parse(typeof(RodClassEnum), updateDto.Class, true).ToString(),
+            RodType = _context.RodType.FirstOrDefault(c=>c.Id == Convert.ToInt32(updateDto.RodType)),
+            TypeOfFishing = _context.TypeOfFishing.FirstOrDefault(c=>c.Id == Convert.ToInt32(updateDto.TypeOfFishing)),
+            Photo = updateDto.Photo,
+            Commentary =  updateDto.Commentary
+        };
+
+        return rod;
     }
 }

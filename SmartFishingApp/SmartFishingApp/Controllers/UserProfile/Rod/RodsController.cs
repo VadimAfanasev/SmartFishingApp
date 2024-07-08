@@ -78,6 +78,10 @@ public class RodsController : ControllerBase
         return _rodMapperService.DomainModelToReadRodsDto(rods);
     }
     
+    /// <summary>
+    ///     Редактирование удилища.
+    /// </summary>
+    /// <param name="updateDto"> Dto для редактирования удилища. </param>
     [HttpPut]
     public async Task UpdateRodAsync([FromQuery] RodUpdateDto updateDto)
     {

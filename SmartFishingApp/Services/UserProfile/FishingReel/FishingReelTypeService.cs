@@ -72,14 +72,13 @@ public class FishingReelTypeService: IFishingReelTypeService
 
         var fishingReelTypeAttachment = new FishingReelTypeAttachmentDto()
         {
+            Id = fishingReelType.Id.ToString(),
             Name = fishingReelType!.Name,
             Commentary = fishingReelType.Commentary,
             FishingReels = fishingReels
         };
         
         return fishingReelTypeAttachment;
-        
-        // возможно стоит получать только список катушек типа переданного по Id
     }
 
     /// <inheritdoc />

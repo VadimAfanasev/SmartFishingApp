@@ -98,4 +98,15 @@ public class RodTypesController : ControllerBase
         var rods = await _rodTypeService.GetRodsAsync(id);
         return _rodTypeMapperService.DomainModelToReadReelsDto(rods);
     }
+    
+    /// <summary>
+    ///     Редактирование типа удилища.
+    /// </summary>
+    /// <param name="updateDto"> Dto для редактирования типа удилища. </param>
+    [HttpPut]
+    public async Task UpdateRodTypeAsync([FromQuery] RodTypeUpdateDto updateDto)
+    {
+        var updateRod = _rodTypeMapperService.UpdateDtoToDomainModel(updateDto);
+        await _rodTypeService.UpdateRodTypeAsync(updateRod);
+    }
 }

@@ -28,5 +28,12 @@ public interface IRodMapperService
     /// <param name="rods"> Список доменных моделей удилища. </param>
     /// <returns> Список <see cref="RodReadDto" />. </returns>
     List<RodReadDto> DomainModelToReadRodsDto(List<Rod> rods);
+    
+    /// <summary>
+    ///     Создание доменной модели <see cref="Rod" /> из <see cref="RodUpdateDto" />.
+    /// </summary>
+    /// <param name="updateDto"> Дто изменяемого удилища </param>
+    /// <returns> <see cref="Rod" />. </returns>
+    Rod UpdateDtoToDomainModel(RodUpdateDto updateDto);
 }
     

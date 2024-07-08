@@ -73,16 +73,16 @@ public class RodTypeService : IRodTypeService
 
         var rodTypeAttachment = new RodTypeAttachmentDto()
         {
+            Id = rodType!.Id.ToString(),
             Name = rodType!.Name,
             Commentary = rodType.Commentary,
             Rods = rods
         };
         
         return rodTypeAttachment;
-        
-        // возможно стоит получать только список катушек типа переданного по Id
     }
 
+    /// <inheritdoc />
     public async Task<RodsDto> GetRodsAsync(string id)
     {
         var rods = await _context.Rod
@@ -94,5 +94,12 @@ public class RodTypeService : IRodTypeService
             Rods = rods
         };
         return rodsDto;
+    }
+
+    /// <inheritdoc />
+    public async Task UpdateRodTypeAsync(RodType rodType)
+    {
+        _context.RodType.Update(rodType);
+        await _context.SaveChangesAsync();
     }
 }

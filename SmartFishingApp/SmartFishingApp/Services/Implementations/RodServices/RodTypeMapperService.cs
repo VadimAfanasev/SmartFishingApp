@@ -42,6 +42,7 @@ public class RodTypeMapperService : IRodTypeMapperService
     {
         var rodTypeOut = new RodTypeReadDto
         {
+            Id = rod.Id.ToString(),
             Name = rod.Name,
             Commentary =  rod.Commentary
         };
@@ -54,6 +55,7 @@ public class RodTypeMapperService : IRodTypeMapperService
     {
         return rodTypes.Select(rod => new RodTypeReadDto
         {
+            Id = rod.Id.ToString(),
             Name = rod.Name,
             Commentary =  rod.Commentary
         }).ToList();
@@ -65,6 +67,7 @@ public class RodTypeMapperService : IRodTypeMapperService
     {
         var readDto = new RodTypeAttachmentReadDto
         {
+            Id = attachmentDto.Id,
             Name = attachmentDto.Name,
             Commentary = attachmentDto.Commentary,
             Rods = attachmentDto.Rods.Select(c => new RodReadDto
@@ -89,5 +92,18 @@ public class RodTypeMapperService : IRodTypeMapperService
             Rods = rodsDto
         };
         return readDto;
+    }
+
+    /// <inheritdoc />
+    public RodType UpdateDtoToDomainModel(RodTypeUpdateDto updateDto)
+    {
+        var rodType = new RodType
+        {
+            Id = int.Parse(updateDto.Id),
+            Name = updateDto.Name,
+            Commentary =  updateDto.Commentary
+        };
+
+        return rodType;
     }
 }

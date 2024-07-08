@@ -1,11 +1,8 @@
-using JetBrains.Annotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace SmartFishingApp.Dto.UserProfile.Rod;
 
-/// <summary>
-///     Dto для отображения типа удилища.
-/// </summary>
-public class RodTypeReadDto
+public class RodTypeUpdateDto
 {
     /// <summary>
     ///     ID сущности
@@ -15,10 +12,13 @@ public class RodTypeReadDto
     /// <summary>
     ///     Название типа удилища.
     /// </summary>
+    [Required]
+    [MaxLength(50, ErrorMessage = "Слишком длинное название типа удилища")]
     public string Name { get; set; }
     
     /// <summary>
     ///     Комментарий.
     /// </summary>
+    [MaxLength(200, ErrorMessage = "Слишком длинный комменатрий")]
     public string? Commentary { get; set; }
 }

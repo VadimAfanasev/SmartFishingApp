@@ -9,8 +9,8 @@ public interface IRodService
     /// <summary>
     ///     Создание удилища.
     /// </summary>
-    /// <param name="fishingReel"> Катушка. </param>
-    Task CreateRodAsync(Rod fishingReel);
+    /// <param name="rod"> Удилище. </param>
+    Task CreateRodAsync(Rod rod);
 
     /// <summary>
     ///     Удаление удилища.
@@ -28,4 +28,10 @@ public interface IRodService
     ///     Получение списка всех удилищ.
     /// </summary>
     Task<List<Rod>> GetRodsAsync();
+    
+    /// <summary>
+    ///     Изменение удилища.
+    /// </summary>
+    /// <param name="rod"> Сущность удилища с новыми данными. </param>
+    Task UpdateRodAsync(Rod rod);
 }
