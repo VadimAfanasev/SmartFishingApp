@@ -37,6 +37,5 @@ public class TypeOfFishing
     /// </summary>
     public string? Commentary { get; set; }
     
-    // Добавить поле размер шпули к катушке
     // Добавить логгирование
 }
