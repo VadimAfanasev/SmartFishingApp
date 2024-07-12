@@ -64,4 +64,15 @@ public class TackleCategoriesController : ControllerBase
         var tackleCategory = await _tackleCategoryService.GetTackleCategoryAsync(id);
         return _tackleCategoryMapperService.DomainModelToReadDto(tackleCategory);
     }
+    
+    /// <summary>
+    ///     Редактирование типа удилища.
+    /// </summary>
+    /// <param name="updateDto"> Dto для редактирования типа удилища. </param>
+    [HttpPut]
+    public async Task UpdateTackleCategoryAsync([FromQuery] TackleCategoryUpdateDto updateDto)
+    {
+        var updateRod = _tackleCategoryMapperService.UpdateDtoToDomainModel(updateDto);
+        await _tackleCategoryService.UpdateTackleCategoryAsync(updateRod);
+    }
 }

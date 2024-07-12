@@ -21,4 +21,11 @@ public interface ITackleCategoryMapperService
     /// <param name="tackleCategory"> Доменная модель категории рыболовной приманки. </param>
     /// <returns> <see cref="TackleCategoryReadDto" />. </returns>
     TackleCategoryReadDto DomainModelToReadDto(TackleCategory tackleCategory);
+    
+    /// <summary>
+    ///     Редактирование доменной модели <see cref="TackleCategory" />. />.
+    /// </summary>
+    /// <param name="updateDto"> Дто изменяемой категории рыболовной приманки </param>
+    /// <returns> <see cref="TackleCategory" />. </returns>
+    TackleCategory UpdateDtoToDomainModel(TackleCategoryUpdateDto updateDto);
 }

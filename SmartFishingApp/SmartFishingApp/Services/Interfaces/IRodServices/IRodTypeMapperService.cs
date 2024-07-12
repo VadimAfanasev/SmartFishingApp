@@ -46,7 +46,7 @@ public interface IRodTypeMapperService
     RodsReadDto DomainModelToReadReelsDto(RodsDto rodsDto);
     
     /// <summary>
-    ///     Создание доменной модели <see cref="RodType" /> из <see cref="RodTypeUpdateDto" />.
+    ///     Редактирование доменной модели <see cref="RodType" />. />.
     /// </summary>
     /// <param name="updateDto"> Дто изменяемого типа удилища </param>
     /// <returns> <see cref="RodType" />. </returns>

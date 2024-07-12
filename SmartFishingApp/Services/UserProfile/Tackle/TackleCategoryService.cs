@@ -1,5 +1,6 @@
 using Database.Context;
 using Interfaces.UserProfile.Tackle;
+using Microsoft.EntityFrameworkCore;
 using Models.Entities.UserProfile.Tackle;
 
 namespace Services.UserProfile.Tackle;
@@ -29,14 +30,27 @@ public class TackleCategoryService: ITackleCategoryService
     }
 
     /// <inheritdoc />
-    public Task DeleteTackleCategoryAsync(string id)
+    public async Task DeleteTackleCategoryAsync(string id)
     {
-        throw new NotImplementedException();
+        var tackleCategory = await _context.TackleCategory.FindAsync(int.Parse(id));
+        if (tackleCategory != null)
+        {
+            _context.TackleCategory.Remove(tackleCategory);
+            await _context.SaveChangesAsync();
+        }
+        else
+            throw new KeyNotFoundException ($"Удаляемая категория рыболовных приманок не найдена");
     }
 
     /// <inheritdoc />
-    public Task<TackleCategory> GetTackleCategoryAsync(string id)
+    public async Task<TackleCategory> GetTackleCategoryAsync(string id)
     {
-        throw new NotImplementedException();
+        var rodType = await _context.TackleCategory.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == int.Parse(id));
+        
+        if (rodType != null)
+            return rodType;
+        else
+            throw new KeyNotFoundException ($"Категория рыболовных приманок не найдена");
     }
 }
