@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Dto\UserProfile\TackleCategory\" />
       <Folder Include="Entities\" />
     </ItemGroup>
 

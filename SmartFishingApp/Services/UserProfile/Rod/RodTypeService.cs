@@ -14,6 +14,10 @@ public class RodTypeService : IRodTypeService
     /// </summary>
     private readonly AppDbContext _context;
 
+    /// <summary>
+    ///     Конструктор по умолчанию.
+    /// </summary>
+    /// <param name="context"> Контекст БД. </param>
     public RodTypeService(AppDbContext context)
     {
         _context = context;

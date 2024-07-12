@@ -1,4 +1,7 @@
+using Interfaces.UserProfile.Tackle;
 using Microsoft.AspNetCore.Mvc;
+using SmartFishingApp.Dto.UserProfile.TackleCategory;
+using SmartFishingApp.Services.Interfaces.ITackleCategoryServices;
 
 namespace SmartFishingApp.Controllers.UserProfile.Tackle;
 
