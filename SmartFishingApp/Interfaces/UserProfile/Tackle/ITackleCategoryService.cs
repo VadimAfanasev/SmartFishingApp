@@ -24,4 +24,10 @@ public interface ITackleCategoryService
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     Task<TackleCategory> GetTackleCategoryAsync(string id);
+    
+    /// <summary>
+    ///     Изменение категории рыболовных приманок.
+    /// </summary>
+    /// <param name="tackleCategory"> Сущность категории рыболовных приманок с новыми данными. </param>
+    Task UpdateTackleCategoryAsync(TackleCategory tackleCategory);
 }

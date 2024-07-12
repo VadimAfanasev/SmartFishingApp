@@ -53,4 +53,11 @@ public class TackleCategoryService: ITackleCategoryService
         else
             throw new KeyNotFoundException ($"Категория рыболовных приманок не найдена");
     }
+
+    /// <inheritdoc />
+    public async Task UpdateTackleCategoryAsync(TackleCategory tackleCategory)
+    {
+        _context.TackleCategory.Update(tackleCategory);
+        await _context.SaveChangesAsync();
+    }
 }
