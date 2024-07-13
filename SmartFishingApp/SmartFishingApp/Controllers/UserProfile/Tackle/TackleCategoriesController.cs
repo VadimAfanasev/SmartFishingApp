@@ -1,5 +1,6 @@
 using Interfaces.UserProfile.Tackle;
 using Microsoft.AspNetCore.Mvc;
+using Models.Dto.UserProfile.TackleCategory;
 using SmartFishingApp.Dto.UserProfile.TackleCategory;
 using SmartFishingApp.Services.Interfaces.ITackleCategoryServices;
 
@@ -33,9 +34,9 @@ public class TackleCategoriesController : ControllerBase
     }
     
     /// <summary>
-    ///     Создание сущности рыболовного удилища.
+    ///     Создание категории рыболовных приманок.
     /// </summary>
-    /// <param name="createDto"> Дто создаваемого объекта удилища </param>
+    /// <param name="createDto"> Дто создаваемого объекта категории рыболовных приманок. </param>
     [HttpPost]
     public async Task CreateTackleCategoryAsync([FromQuery] TackleCategoryCreateDto createDto)
     {
@@ -44,7 +45,7 @@ public class TackleCategoriesController : ControllerBase
     }
     
     /// <summary>
-    ///     Удаление рыболовного удилища.
+    ///     Удаление категории рыболовных приманок.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     [HttpDelete]
@@ -54,10 +55,10 @@ public class TackleCategoriesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение одного экземпляра рыболовного удилища.
+    ///     Получение категории рыболовных приманок.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
-    /// <returns> DTO удилища. </returns>
+    /// <returns> DTO категории рыболовных приманок. </returns>
     [HttpGet]
     public async Task<TackleCategoryReadDto> GetTackleCategoryAsync([FromQuery] string id)
     {
@@ -66,13 +67,25 @@ public class TackleCategoriesController : ControllerBase
     }
     
     /// <summary>
-    ///     Редактирование типа удилища.
+    ///     Редактирование категории рыболовных приманок.
     /// </summary>
-    /// <param name="updateDto"> Dto для редактирования типа удилища. </param>
+    /// <param name="updateDto"> Dto для редактирования категории рыболовных приманок. </param>
     [HttpPut]
     public async Task UpdateTackleCategoryAsync([FromQuery] TackleCategoryUpdateDto updateDto)
     {
         var updateRod = _tackleCategoryMapperService.UpdateDtoToDomainModel(updateDto);
         await _tackleCategoryService.UpdateTackleCategoryAsync(updateRod);
+    }
+    
+    /// <summary>
+    ///     Получение всех приманок, соответсвующих данной категории.
+    /// </summary>
+    /// <param name="id"> Id категории. </param>
+    /// <returns> Список приманок. </returns>
+    [HttpGet]
+    public async Task<TackleCategoryAttachmentDto> GetTacklesFromCategoryAsync([FromQuery] string id)
+    {
+        var tackleCategory = await _tackleCategoryService.GetTackleCategoryAsync(id);
+        return _tackleCategoryMapperService.DomainModelToReadDto(tackleCategory);
     }
 }
