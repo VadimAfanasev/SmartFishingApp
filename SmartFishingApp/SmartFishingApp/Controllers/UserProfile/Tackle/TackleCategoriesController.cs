@@ -88,4 +88,6 @@ public class TackleCategoriesController : ControllerBase
         var tackleCategory = await _tackleCategoryService.GetTackleCategoryAsync(id);
         return _tackleCategoryMapperService.DomainModelToReadDto(tackleCategory);
     }
+    
+    // Подумать как возвращать список приманок, как через TackleBase получать информацию о приманках 
 }
