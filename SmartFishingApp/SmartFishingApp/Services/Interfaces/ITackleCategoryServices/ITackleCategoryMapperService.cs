@@ -1,3 +1,4 @@
+using Models.Dto.UserProfile.TackleCategory;
 using Models.Entities.UserProfile.Tackle;
 using SmartFishingApp.Dto.UserProfile.TackleCategory;
 
@@ -28,4 +29,11 @@ public interface ITackleCategoryMapperService
     /// <param name="updateDto"> Дто изменяемой категории рыболовной приманки </param>
     /// <returns> <see cref="TackleCategory" />. </returns>
     TackleCategory UpdateDtoToDomainModel(TackleCategoryUpdateDto updateDto);
+
+    /// <summary>
+    ///     Создание ДТО модели <see cref="TackleCategoryAttachmentDto" /> из <see cref="TackleCategory" />.
+    /// </summary>
+    /// <param name="tackleCategory"> Доменная модель типа удилища со списком удилищ этого типа </param>
+    /// <returns> <see cref="TackleCategoryAttachmentDto" />. </returns>
+    TackleCategoryAttachmentReadDto DomainModelToReadTackleCategoryAttachmentDto(TackleCategoryAttachmentDto tackleCategory);
 }

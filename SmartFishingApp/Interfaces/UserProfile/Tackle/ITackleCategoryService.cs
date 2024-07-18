@@ -1,3 +1,4 @@
+using Models.Dto.UserProfile.TackleCategory;
 using Models.Entities.UserProfile.Tackle;
 
 namespace Interfaces.UserProfile.Tackle;
@@ -30,4 +31,11 @@ public interface ITackleCategoryService
     /// </summary>
     /// <param name="tackleCategory"> Сущность категории рыболовных приманок с новыми данными. </param>
     Task UpdateTackleCategoryAsync(TackleCategory tackleCategory);
+    
+    /// <summary>
+    ///     Получение категории рыболовных приманок с приманками этой категории.
+    /// </summary>
+    /// <param name="id"> Id категории рыболовных приманок. </param>
+    /// <returns> Категория рыболовных приманок с приманками этой категории. </returns>
+    Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentsAsync(string id);
 }

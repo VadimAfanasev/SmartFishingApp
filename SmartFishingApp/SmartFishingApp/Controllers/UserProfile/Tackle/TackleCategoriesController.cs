@@ -83,10 +83,10 @@ public class TackleCategoriesController : ControllerBase
     /// <param name="id"> Id категории. </param>
     /// <returns> Список приманок. </returns>
     [HttpGet]
-    public async Task<TackleCategoryAttachmentDto> GetTacklesFromCategoryAsync([FromQuery] string id)
+    public async Task<TackleCategoryAttachmentReadDto> GetTacklesFromCategoryAsync([FromQuery] string id)
     {
-        var tackleCategory = await _tackleCategoryService.GetTackleCategoryAsync(id);
-        return _tackleCategoryMapperService.DomainModelToReadDto(tackleCategory);
+        var tackleCategory = await _tackleCategoryService.GetTackleCategoryAttachmentAsync(id);
+        return _tackleCategoryMapperService.DomainModelToReadTackleCategoryAttachmentDto(tackleCategory);
     }
     
     // Подумать как возвращать список приманок в запросе GetTacklesFromCategoryAsync, как через TackleBase получать информацию о приманках 

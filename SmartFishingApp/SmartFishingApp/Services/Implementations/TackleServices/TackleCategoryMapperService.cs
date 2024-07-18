@@ -62,4 +62,18 @@ public class TackleCategoryMapperService: ITackleCategoryMapperService
 
         return tackleCategory;
     }
+    
+    /// <inheritdoc />
+    public TackleCategoryReadDto DomainModelToReadTackleCategoryAttachmentDto(TackleCategory tackleCategory)
+    {
+        var tackleCategoryOut = new TackleCategoryReadDto
+        {
+            Id = tackleCategory.Id.ToString(),
+            Name = tackleCategory.Name,
+            TypeOfFishing = tackleCategory.TypeOfFishing.Name,
+            Commentary =  tackleCategory.Commentary
+        };
+        
+        return tackleCategoryOut;
+    }
 }

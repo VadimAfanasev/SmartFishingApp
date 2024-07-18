@@ -1,6 +1,7 @@
 using Database.Context;
 using Interfaces.UserProfile.Tackle;
 using Microsoft.EntityFrameworkCore;
+using Models.Dto.UserProfile.TackleCategory;
 using Models.Entities.UserProfile.Tackle;
 
 namespace Services.UserProfile.Tackle;
@@ -59,5 +60,10 @@ public class TackleCategoryService: ITackleCategoryService
     {
         _context.TackleCategory.Update(tackleCategory);
         await _context.SaveChangesAsync();
+    }
+
+    public Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentsAsync(string id)
+    {
+        throw new NotImplementedException();
     }
 }
