@@ -61,9 +61,17 @@ public class TackleCategoryService: ITackleCategoryService
         _context.TackleCategory.Update(tackleCategory);
         await _context.SaveChangesAsync();
     }
-
-    public Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentsAsync(string id)
+    
+    /// <inheritdoc />
+    public async Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentAsync(string id)
     {
-        throw new NotImplementedException();
+        var tackleCategory = await _context.TackleCategory
+            .FirstOrDefaultAsync(cat => cat.Id == int.Parse(id));
+
+        var tackleBase = await _context.
+            .Include(c=>c.RodType)
+            .Include(c=>c.TypeOfFishing)
+            .Where(c => c.RodType == rodType)
+            .ToListAsync();
     }
 }

@@ -37,5 +37,5 @@ public interface ITackleCategoryService
     /// </summary>
     /// <param name="id"> Id категории рыболовных приманок. </param>
     /// <returns> Категория рыболовных приманок с приманками этой категории. </returns>
-    Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentsAsync(string id);
+    Task<TackleCategoryAttachmentDto> GetTackleCategoryAttachmentAsync(string id);
 }
