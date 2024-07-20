@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using Database.Context;
 using Interfaces.UserProfile.Tackle;
 using Microsoft.EntityFrameworkCore;
@@ -68,10 +69,15 @@ public class TackleCategoryService: ITackleCategoryService
         var tackleCategory = await _context.TackleCategory
             .FirstOrDefaultAsync(cat => cat.Id == int.Parse(id));
 
-        var tackleBase = await _context.
-            .Include(c=>c.RodType)
-            .Include(c=>c.TypeOfFishing)
-            .Where(c => c.RodType == rodType)
+        var test = new List<TackleBaseDto>();
+        
+        
+        var result = await _context.FeederAlive
+            .Where(c => c.TackleCategory.Id == int.Parse(id))
+            .Cast<TackleBaseDto>()
+            .Union(_context.SpinningJig
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
             .ToListAsync();
     }
 }
