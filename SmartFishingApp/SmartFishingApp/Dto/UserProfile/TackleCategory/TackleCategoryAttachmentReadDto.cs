@@ -20,5 +20,5 @@ public class TackleCategoryAttachmentReadDto
     /// <summary>
     ///     Катушки данного типа
     /// </summary>
-    public List<RodReadDto> Rods { get; set; }
+    public List<TackleBaseReadDto>? TackleBases { get; set; }
 }

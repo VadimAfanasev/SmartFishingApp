@@ -30,5 +30,5 @@ public class TackleCategoryAttachmentDto
     /// <summary>
     ///     Приманки данной категории
     /// </summary>
-    public List<TackleBase>? Tackles { get; set; }
+    public List<TackleBaseDto>? Tackles { get; set; }
 }

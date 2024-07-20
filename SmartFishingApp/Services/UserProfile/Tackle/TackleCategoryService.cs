@@ -68,16 +68,54 @@ public class TackleCategoryService: ITackleCategoryService
     {
         var tackleCategory = await _context.TackleCategory
             .FirstOrDefaultAsync(cat => cat.Id == int.Parse(id));
-
-        var test = new List<TackleBaseDto>();
         
-        
-        var result = await _context.FeederAlive
+        var resultTackles = await _context.FeederAlive
             .Where(c => c.TackleCategory.Id == int.Parse(id))
             .Cast<TackleBaseDto>()
+            .Union(_context.FeederBoil
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.FeederCorn
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.FloatAlive
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.FloatCorn
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
             .Union(_context.SpinningJig
                 .Where(c => c.TackleCategory.Id == int.Parse(id))
                 .Cast<TackleBaseDto>())
+            .Union(_context.SpinningSpoon
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.SpinningVobler
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.WinterJig
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.WinterRocker
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.WinterSpoon
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
+            .Union(_context.WinterVobler
+                .Where(c => c.TackleCategory.Id == int.Parse(id))
+                .Cast<TackleBaseDto>())
             .ToListAsync();
+        
+        var tackleCategoryAttachment = new TackleCategoryAttachmentDto()
+        {
+            Id = tackleCategory!.Id.ToString(),
+            Name = tackleCategory!.Name,
+            TypeOfFishing = tackleCategory.TypeOfFishing.ToString(),
+            Commentary = tackleCategory.Commentary,
+            Tackles = resultTackles
+        };
+        
+        return tackleCategoryAttachment;
     }
 }

@@ -1,4 +1,5 @@
 using Database.Context;
+using Models.Dto.UserProfile.TackleCategory;
 using Models.Entities.UserProfile.Tackle;
 using SmartFishingApp.Dto.UserProfile.TackleCategory;
 using SmartFishingApp.Services.Interfaces.ITackleCategoryServices;
@@ -62,16 +63,24 @@ public class TackleCategoryMapperService: ITackleCategoryMapperService
 
         return tackleCategory;
     }
-    
+
     /// <inheritdoc />
-    public TackleCategoryReadDto DomainModelToReadTackleCategoryAttachmentDto(TackleCategory tackleCategory)
+    public TackleCategoryAttachmentReadDto DomainModelToReadTackleCategoryAttachmentDto(TackleCategoryAttachmentDto tackleCategory)
     {
-        var tackleCategoryOut = new TackleCategoryReadDto
+        var tackleCategoryOut = new TackleCategoryAttachmentReadDto
         {
             Id = tackleCategory.Id.ToString(),
             Name = tackleCategory.Name,
-            TypeOfFishing = tackleCategory.TypeOfFishing.Name,
-            Commentary =  tackleCategory.Commentary
+            Commentary =  tackleCategory.Commentary,
+            TackleBases = tackleCategory.Tackles.Select(c => new TackleBaseReadDto
+            {
+                Brand = c.Brand,
+                Type = c.Type,
+                RodType = c.RodType.Name,
+                TypeOfFishing = c.TypeOfFishing.Name,
+                Photo = c.Photo,
+                Commentary = c.Commentary
+            }).ToList()
         };
         
         return tackleCategoryOut;
