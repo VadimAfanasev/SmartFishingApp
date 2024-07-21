@@ -68,7 +68,7 @@ public class RodTypesController : ControllerBase
     /// </summary>
     /// <returns> Список DTO всех типов удилищ.  </returns>
     [HttpGet]
-    [Route("rodTypes")]
+    [Route("rod-types")]
     public async Task<List<RodTypeReadDto>> GetReelTypesAsync()
     {
         var rodTypes = await _rodTypeService.GetRodTypesAsync();
@@ -80,7 +80,7 @@ public class RodTypesController : ControllerBase
     /// </summary>
     /// <returns> DTO удилища c удилищами этого типа.  </returns>
     [HttpGet]
-    [Route("rodTypeAttachment")]
+    [Route("rod-type-attachment")]
     public async Task<RodTypeAttachmentReadDto> GetReelTypesAttachmentAsync([FromQuery] string id)
     {
         var rodTypesAttachment = await _rodTypeService.GetRodTypesAttachmentAsync(id);

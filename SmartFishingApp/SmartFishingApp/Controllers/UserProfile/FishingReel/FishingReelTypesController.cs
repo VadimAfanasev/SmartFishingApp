@@ -71,7 +71,7 @@ public class FishingReelTypesController : ControllerBase
     /// </summary>
     /// <returns> Список DTO всех типов катушек.  </returns>
     [HttpGet]
-    [Route("reelTypes")]
+    [Route("reel-types")]
     public async Task<List<FishingReelTypeReadDto>> GetReelTypesAsync()
     {
         var fishingReelTypes = await _fishingReelTypeService.GetFishingReelTypesAsync();
@@ -83,7 +83,7 @@ public class FishingReelTypesController : ControllerBase
     /// </summary>
     /// <returns> DTO катушки c катушками этого типа.  </returns>
     [HttpGet]
-    [Route("reelTypeAttachment")]
+    [Route("reel-type-attachment")]
     public async Task<FishingReelTypeAttachmentReadDto> GetReelTypesAttachmentAsync([FromQuery] string id)
     {
         var fishingReelTypesAttachment = await _fishingReelTypeService.GetFishingReelTypesAttachmentAsync(id);

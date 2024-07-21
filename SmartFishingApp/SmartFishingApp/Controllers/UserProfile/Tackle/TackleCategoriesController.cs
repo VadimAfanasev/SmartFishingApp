@@ -63,7 +63,19 @@ public class TackleCategoriesController : ControllerBase
     public async Task<TackleCategoryReadDto> GetTackleCategoryAsync([FromQuery] string id)
     {
         var tackleCategory = await _tackleCategoryService.GetTackleCategoryAsync(id);
-        return _tackleCategoryMapperService.DomainModelToReadDto(tackleCategory);
+        return _tackleCategoryMapperService.DomainModelToTackleCategoryReadDto(tackleCategory);
+    }
+    
+    /// <summary>
+    ///     Получение списка категорий рыболовных приманок.
+    /// </summary>
+    /// <returns> Список DTO категории рыболовных приманок. </returns>
+    [HttpGet]
+    [Route("tackle-categories")]
+    public async Task<List<TackleCategoryReadDto>> GetTackleCategoriesAsync()
+    {
+        var tackleCategories = await _tackleCategoryService.GetTackleCategoriesAsync();
+        return _tackleCategoryMapperService.DomainModelToTackleCategoriesReadDto(tackleCategories);
     }
     
     /// <summary>
@@ -88,6 +100,4 @@ public class TackleCategoriesController : ControllerBase
         var tackleCategory = await _tackleCategoryService.GetTackleCategoryAttachmentAsync(id);
         return _tackleCategoryMapperService.DomainModelToReadTackleCategoryAttachmentDto(tackleCategory);
     }
-    
-    // Подумать как возвращать список приманок в запросе GetTacklesFromCategoryAsync, как через TackleBase получать информацию о приманках 
 }
