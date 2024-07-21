@@ -24,7 +24,14 @@ public interface ITackleCategoryService
     ///     Получение категории рыболовных приманок по Id.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
+    /// <returns> <see cref="TackleCategory"/>. </returns>
     Task<TackleCategory> GetTackleCategoryAsync(string id);
+    
+    /// <summary>
+    ///     Получение списка всех категорий рыболовных приманок.
+    /// </summary>
+    /// <returns> Список <see cref="TackleCategory"/>. </returns>
+    Task<List<TackleCategory>> GetTackleCategoriesAsync();
     
     /// <summary>
     ///     Изменение категории рыболовных приманок.

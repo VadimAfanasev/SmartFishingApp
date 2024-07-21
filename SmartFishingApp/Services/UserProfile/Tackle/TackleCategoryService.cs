@@ -57,6 +57,17 @@ public class TackleCategoryService: ITackleCategoryService
     }
 
     /// <inheritdoc />
+    public async Task<List<TackleCategory>> GetTackleCategoriesAsync()
+    {
+        var tackleCategories = await _context.TackleCategory.AsNoTracking().ToListAsync();
+        
+        if (tackleCategories != null)
+            return tackleCategories;
+        else
+            throw new KeyNotFoundException ($"Категории рыболовных приманок не найдены");
+    }
+
+    /// <inheritdoc />
     public async Task UpdateTackleCategoryAsync(TackleCategory tackleCategory)
     {
         _context.TackleCategory.Update(tackleCategory);
