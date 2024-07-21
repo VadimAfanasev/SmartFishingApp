@@ -37,7 +37,7 @@ public class TackleCategoryMapperService: ITackleCategoryMapperService
     }
 
     /// <inheritdoc />
-    public TackleCategoryReadDto DomainModelToReadDto(TackleCategory tackleCategory)
+    public TackleCategoryReadDto DomainModelToTackleCategoryReadDto(TackleCategory tackleCategory)
     {
         var tackleCategoryOut = new TackleCategoryReadDto
         {
@@ -48,6 +48,18 @@ public class TackleCategoryMapperService: ITackleCategoryMapperService
         };
         
         return tackleCategoryOut;
+    }
+
+    /// <inheritdoc />
+    public List<TackleCategoryReadDto> DomainModelToTackleCategoriesReadDto(List<TackleCategory> tackleCategories)
+    {
+        return tackleCategories.Select(rod => new TackleCategoryReadDto
+        {
+            Id = rod.Id.ToString(),
+            Name = rod.Name,
+            TypeOfFishing = rod.TypeOfFishing.Name,
+            Commentary =  rod.Commentary
+        }).ToList();
     }
 
     /// <inheritdoc />
@@ -74,10 +86,12 @@ public class TackleCategoryMapperService: ITackleCategoryMapperService
             Commentary =  tackleCategory.Commentary,
             TackleBases = tackleCategory.Tackles.Select(c => new TackleBaseReadDto
             {
+                Id = c.Id.ToString(),
+                Name = c.Name,
+                TackleCategory = c.TackleCategory,
+                NozzleType = c.NozzleType,
                 Brand = c.Brand,
-                Type = c.Type,
-                RodType = c.RodType.Name,
-                TypeOfFishing = c.TypeOfFishing.Name,
+                Model = c.Model,
                 Photo = c.Photo,
                 Commentary = c.Commentary
             }).ToList()

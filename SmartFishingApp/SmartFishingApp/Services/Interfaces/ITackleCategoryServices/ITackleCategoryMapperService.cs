@@ -21,7 +21,14 @@ public interface ITackleCategoryMapperService
     /// </summary>
     /// <param name="tackleCategory"> Доменная модель категории рыболовной приманки. </param>
     /// <returns> <see cref="TackleCategoryReadDto" />. </returns>
-    TackleCategoryReadDto DomainModelToReadDto(TackleCategory tackleCategory);
+    TackleCategoryReadDto DomainModelToTackleCategoryReadDto(TackleCategory tackleCategory);
+    
+    /// <summary>
+    ///     Создание списка ДТО моделей <see cref="TackleCategoryReadDto" /> из <see cref="TackleCategory" />.
+    /// </summary>
+    /// <param name="tackleCategory"> Список доменных моделей категорий рыболовных приманок. </param>
+    /// <returns> Список <see cref="TackleCategoryReadDto" />. </returns>
+    List<TackleCategoryReadDto> DomainModelToTackleCategoriesReadDto(List<TackleCategory> tackleCategory);
     
     /// <summary>
     ///     Редактирование доменной модели <see cref="TackleCategory" />. />.
@@ -31,9 +38,9 @@ public interface ITackleCategoryMapperService
     TackleCategory UpdateDtoToDomainModel(TackleCategoryUpdateDto updateDto);
 
     /// <summary>
-    ///     Создание ДТО модели <see cref="TackleCategoryAttachmentDto" /> из <see cref="TackleCategory" />.
+    ///     Создание ДТО модели <see cref="TackleCategoryAttachmentReadDto" /> из <see cref="TackleCategoryAttachmentDto" />.
     /// </summary>
     /// <param name="tackleCategory"> Доменная модель типа удилища со списком удилищ этого типа </param>
-    /// <returns> <see cref="TackleCategoryAttachmentDto" />. </returns>
+    /// <returns> <see cref="TackleCategoryAttachmentReadDto" />. </returns>
     TackleCategoryAttachmentReadDto DomainModelToReadTackleCategoryAttachmentDto(TackleCategoryAttachmentDto tackleCategory);
 }

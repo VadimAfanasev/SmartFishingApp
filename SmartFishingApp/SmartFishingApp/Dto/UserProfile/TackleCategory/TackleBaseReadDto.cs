@@ -8,7 +8,7 @@ public class TackleBaseReadDto
     /// <summary>
     ///     ID сущности
     /// </summary>
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
     /// <summary>
     ///     Название приманки
