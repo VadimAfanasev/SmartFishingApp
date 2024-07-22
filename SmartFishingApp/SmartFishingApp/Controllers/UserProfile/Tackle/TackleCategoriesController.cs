@@ -55,7 +55,7 @@ public class TackleCategoriesController : ControllerBase
     }
     
     /// <summary>
-    ///     Получение категории рыболовных приманок.
+    ///     Получение категории рыболовных приманок по Id.
     /// </summary>
     /// <param name="id"> Id сущности. </param>
     /// <returns> DTO категории рыболовных приманок. </returns>
