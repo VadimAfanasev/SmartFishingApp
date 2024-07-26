@@ -8,5 +8,5 @@ namespace SmartFishingApp.Controllers.UserProfile.Tackle;
 [Route("api/tackles")]
 public class TacklesController : ControllerBase
 {
-    
+     
 }
