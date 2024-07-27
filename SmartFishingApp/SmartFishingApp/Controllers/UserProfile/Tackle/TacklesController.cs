@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Models.Entities.UserProfile.Tackle;
 using Models.Entities.UserProfile.Tackle.TackleTypes.Spinning;
@@ -38,21 +39,31 @@ public class TacklesController : ControllerBase
     {
         // Десериализуем JSON-элемент в конкретный тип сущности
         var tackleType = GetTypeFromJsonElement(jsonElement);
-        var tackleInstance = (TackleBase)JsonSerializer.Deserialize(jsonElement.GetRawText(), tackleType);
+        
+        var jsonSerializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            ReferenceHandler = ReferenceHandler.Preserve,
+            MaxDepth = 10 // or a higher value if needed
+        };
+
+        var tackleInstance = (TackleBase)JsonSerializer.Deserialize(jsonElement.GetRawText(), tackleType, jsonSerializerOptions)!;
+        
         return Ok();
     }
     
     private Type GetTypeFromJsonElement(JsonElement jsonElement)
     {
         // Определяем тип сущности на основе свойства "tackleCategory"
-        var tackleCategory = jsonElement.GetProperty("tackleCategory").GetString();
+        var tackleCategory = jsonElement.GetProperty("TackleCategory").GetProperty("Name").GetString();
+        
         switch (tackleCategory)
         {
-            case "FeederAlive":
+            case "Живая насадка":
                 return typeof(FeederAlive);
-            case "FeederBoil":
+            case "Бойл":
                 return typeof(FeederBoil);
-            case "SpinningJig":
+            case "Джиг":
                 return typeof(SpinningJig);
             // Добавляем другие типы сущностей
             default:
