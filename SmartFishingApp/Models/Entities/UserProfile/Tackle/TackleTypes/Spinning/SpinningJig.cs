@@ -1,7 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using Models.Entities.UserProfile.Tackle;
-
-namespace SmartFishingApp.Models.Tackle.TackleTypes.Spinning;
+namespace Models.Entities.UserProfile.Tackle.TackleTypes.Spinning;
 
 /// <summary>
 ///     Джиг

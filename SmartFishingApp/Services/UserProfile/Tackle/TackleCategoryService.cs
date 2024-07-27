@@ -2,8 +2,10 @@ using System.Collections.Specialized;
 using Database.Context;
 using Interfaces.UserProfile.Tackle;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Models.Dto.UserProfile.TackleCategory;
 using Models.Entities.UserProfile.Tackle;
+using SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
 
 namespace Services.UserProfile.Tackle;
 

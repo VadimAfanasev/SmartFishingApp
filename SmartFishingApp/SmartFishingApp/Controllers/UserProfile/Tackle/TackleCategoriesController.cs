@@ -95,6 +95,7 @@ public class TackleCategoriesController : ControllerBase
     /// <param name="id"> Id категории. </param>
     /// <returns> Список приманок. </returns>
     [HttpGet]
+    [Route("tackles-from-categories")]
     public async Task<TackleCategoryAttachmentReadDto> GetTacklesFromCategoryAsync([FromQuery] string id)
     {
         var tackleCategory = await _tackleCategoryService.GetTackleCategoryAttachmentAsync(id);
