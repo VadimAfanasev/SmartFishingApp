@@ -43,8 +43,7 @@ public class TacklesController : ControllerBase
         var jsonSerializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            ReferenceHandler = ReferenceHandler.Preserve,
-            MaxDepth = 10 // or a higher value if needed
+            ReferenceHandler = ReferenceHandler.Preserve
         };
 
         var tackleInstance = (TackleBase)JsonSerializer.Deserialize(jsonElement.GetRawText(), tackleType, jsonSerializerOptions)!;
@@ -70,4 +69,21 @@ public class TacklesController : ControllerBase
                 throw new ArgumentException("Неизвестный тип сущности");
         }
     }
+    
+    // {
+    //     "TackleCategory": {
+    //         "Id": 6,
+    //         "Name": "Джиг",
+    //         "TypeOfFishing": {
+    //             "Name": "Джиг",
+    //             "Id": 6
+    //         }
+    //     },
+    //     "name": "Джиг для спиннинга",
+    //     "brand": "Rapala",
+    //     "model": "Jigging Rap",
+    //     "form": "Овальная",
+    //     "length": 5,
+    //     "color": "Серебристый"
+    // }
 }
