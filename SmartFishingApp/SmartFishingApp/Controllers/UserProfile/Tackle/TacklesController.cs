@@ -70,6 +70,8 @@ public class TacklesController : ControllerBase
         }
     }
     
+    
+    // нужно сохранить этот json для примера
     // {
     //     "TackleCategory": {
     //         "Id": 6,
