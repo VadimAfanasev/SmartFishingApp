@@ -39,6 +39,7 @@ public class TacklesController : ControllerBase
     {
         // Десериализуем JSON-элемент в конкретный тип сущности
         var tackleType = GetTypeFromJsonElement(jsonElement);
+        var tackleTypeOfFishing = GetTackleTypeOfFishingFromJson(jsonElement);
         
         var jsonSerializerOptions = new JsonSerializerOptions
         {
@@ -62,12 +63,21 @@ public class TacklesController : ControllerBase
                 return typeof(FeederAlive);
             case "Бойл":
                 return typeof(FeederBoil);
+            case "Зерновая насадка":
+                return typeof(FeederCorn);
             case "Джиг":
                 return typeof(SpinningJig);
             // Добавляем другие типы сущностей
             default:
                 throw new ArgumentException("Неизвестный тип сущности");
         }
+    }
+
+    private Type GetTackleTypeOfFishingFromJson(JsonElement jsonElement)
+    {
+        var tackleTypeFromJson = jsonElement.GetProperty("TackleCategory").GetProperty("TypeOfFishing").GetString();
+        var tackleType = _context.TackleTypes.FirstOrDefault(x => x.id == tackleTypeFromJson.Id);
+
     }
     
     
