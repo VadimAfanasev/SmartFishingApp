@@ -1,9 +1,11 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Interfaces.UserProfile.Tackle;
 using Microsoft.AspNetCore.Mvc;
 using Models.Entities.UserProfile.Tackle;
 using Models.Entities.UserProfile.Tackle.TackleTypes.Spinning;
 using SmartFishingApp.Models.Tackle.TackleTypes.Feeder;
+using SmartFishingApp.Services.Interfaces.ITackleServices;
 
 namespace SmartFishingApp.Controllers.UserProfile.Tackle;
 
@@ -13,26 +15,26 @@ namespace SmartFishingApp.Controllers.UserProfile.Tackle;
 [Route("api/tackles")]
 public class TacklesController : ControllerBase
 {
-    // /// <summary>
-    // ///     Сервис маппинга сущностей рыболовных приманок.
-    // /// </summary>
-    // private readonly ITackleMapperService _tackleMapperService;
-    //
-    // /// <summary>
-    // ///     Сервис для работы с рыболовными приманками.
-    // /// </summary>
-    // private readonly ITackleService _tackleService;
-    //
-    // /// <summary>
-    // ///     Конструктор.
-    // /// </summary>
-    // /// <param name="tackleMapperService"> Сервис маппинга сущностей рыболовных приманок. </param>
-    // /// <param name="tackleService"> Сервис для работы с рыболовными приманками. </param>
-    // public TacklesController(ITackleCMapperService tackleMapperService, ITackleService tackleService)
-    // {
-    //     _tackleMapperService = tackleMapperService;
-    //     _tackleService = tackleService;
-    // }
+    /// <summary>
+    ///     Сервис маппинга сущностей рыболовных приманок.
+    /// </summary>
+    private readonly ITackleMapperService _tackleMapperService;
+    
+    /// <summary>
+    ///     Сервис для работы с рыболовными приманками.
+    /// </summary>
+    private readonly ITackleService _tackleService;
+    
+    /// <summary>
+    ///     Конструктор.
+    /// </summary>
+    /// <param name="tackleMapperService"> Сервис маппинга сущностей рыболовных приманок. </param>
+    /// <param name="tackleService"> Сервис для работы с рыболовными приманками. </param>
+    public TacklesController(ITackleMapperService tackleMapperService, ITackleService tackleService)
+    {
+        _tackleMapperService = tackleMapperService;
+        _tackleService = tackleService;
+    }
 
     [HttpPost]
     public IActionResult CreateTackle([FromBody] JsonElement jsonElement)
