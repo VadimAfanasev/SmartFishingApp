@@ -79,7 +79,6 @@ public class TacklesController : ControllerBase
     {
         var tackleTypeFromJson = jsonElement.GetProperty("TackleCategory").GetProperty("TypeOfFishing").GetString();
         var tackleType = _context.TackleTypes.FirstOrDefault(x => x.id == tackleTypeFromJson.Id);
-
     }
     
     
